@@ -1,0 +1,104 @@
+baseURL: "https://goodcodebadcode.dev/"
+title: "Good Code, Bad Code"
+paginate: 8
+theme: hugo-PaperMod
+enableInlineShortcodes: true
+enableRobotsTXT: true
+googleAnalytics: G-DF9JL6LPZE
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+languages:
+  en:
+    languageName: "English"
+    weight: 1
+    menu:
+      main:
+        - name: About
+          url: about/
+          weight: 1
+        - name: Archive
+          url: archives
+          weight: 5
+        - name: Search
+          url: search/
+          weight: 10
+        - name: Tags
+          url: tags/
+          weight: 10
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+params:
+  env: production
+  description: "A blog by David Winchester on why writing good code matters, and how to do it."
+  author: "David Winchester"
+  bio: "David has been helping development teams for over a decade and writing code for twice that. He specializes in Software Architecture, DevOps Practices and Principles, Containers and Distributed Systems."
+  disableThemeToggle: true
+  showReadingTime: true
+  defaultTheme: light
+  showShareButtons: true
+  comments: true
+  disqusShortname: goodcodebadcode
+  displayFullLangName: true
+  # images: "<link or path of image for opengraph, twitter-cards>"
+  # assets:
+  #     favicon: "<link / abs url>"
+  #     favicon16x16: "<link / abs url>"
+  #     favicon32x32: "<link / abs url>"
+  #     apple_touch_icon: "<link / abs url>"
+  #     safari_pinned_tab: "<link / abs url>"
+
+  profileMode:
+    enabled: false
+    title: "David Winchester"
+    imageUrl: "/profile-pic.png"
+    imageTitle: "No, I'm not Batman"
+    imageWidth: 120
+    imageHeight: 120
+
+  homeInfo:
+    title: "Building Software Better \U0001F680"
+    content: >
+      A blog about software engineering from the trenches.
+
+  socialIcons:
+    - name: twitter
+      url: "https://twitter.com/goodcodebadcode/"
+    - name: github
+      url: "https://github.com/goodcodebadcode/"
+
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
+
+privacy:
+  vimeo:
+    disabled: false
+    simple: true
+
+  twitter:
+    disabled: false
+    enableDNT: true
+    simple: true
+
+  instagram:
+    disabled: false
+    simple: true
+
+  youtube:
+    disabled: false
+    privacyEnhanced: true
+
+services:
+  instagram:
+    disableInlineCSS: true
+  twitter:
+    disableInlineCSS: true
