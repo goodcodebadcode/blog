@@ -1,4 +1,4 @@
-baseURL: "https://goodcodebadcode.dev/"
+baseURL: "https://www.goodcodebadcode.dev/"
 title: "Good Code, Bad Code"
 paginate: 8
 theme: hugo-PaperMod
