@@ -6,7 +6,7 @@ description: "To code and to code well....that is the goal."
 disableShare: false
 cover:
     image: "/images/about-cover.jpeg"
-    alt: "Image for post cover."
+    alt: "Image for post cover"
     caption: "Photo by Joshua Aragon on Unsplash"
     relative: false
 comments: true

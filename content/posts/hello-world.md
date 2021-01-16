@@ -8,7 +8,7 @@ hideMeta: false
 disableShare: false
 cover:
     image: "/images/hello-world.jpg"
-    alt: "Post cover"
+    alt: "Image for post cover"
     caption: "Img source: yen.io"
     relative: false
 comments: true
