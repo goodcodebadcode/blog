@@ -1,6 +1,5 @@
 ---
 title: "Hello World"
-description: Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ.
 date: 2020-09-15T11:30:03+00:00
 draft: false
 aliases: ["/hello-world"]
@@ -8,9 +7,9 @@ tags: ["blog"]
 hideMeta: false
 disableShare: false
 cover:
-    image: "/images/unsplash.jpg"
-    alt: "A random image."
-    caption: "Hello world"
+    image: "/images/hello-world.jpg"
+    alt: "Post cover"
+    caption: "Img source: yen.io"
     relative: false
 comments: true
 ---
