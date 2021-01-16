@@ -1,12 +1,10 @@
 ---
-title: "Just another post. Getting started with Hugo"
+title: "Hello World"
 description: Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ.
 date: 2020-09-15T11:30:03+00:00
-draft: true
+draft: false
 aliases: ["/hello-world"]
-tags: ["javascript", "react", "webdev"]
-categories: ["themes", "syntax"]
-series: ["Getting started with Hugo"]
+tags: ["blog"]
 hideMeta: false
 disableShare: false
 cover:
@@ -17,64 +15,45 @@ cover:
 comments: true
 ---
 
+Well, it's up. After messing around with Hugo and Netlify environment variables 
+for an hour, my blog is up.
 
-Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, 
-voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma 
-dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as 
-cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin 
-porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? 
-Quiatem. 
+## Why write a blog?
 
-{{< highlight cpp >}}
+As a profession, writing software is relatively young, not only that, a large 
+majority of the industry is still getting to grips with the necessary tools and 
+techniques to build great software. This has become even more relevant as people 
+learn to code at an earlier age, as a hobby or for a change in career.
 
-#include <iostream>
-using namespace std;
+So, whilst technologies come and go, the foundational patterns and technical 
+practices are always present. 
 
-class Data
-{
-private:
-    int n, m;
-public:
-    Data() { n = 0; m = 0; }
-    Data(int n, int m) { this->n = n; this->m = m; }
+On the opposite side of that coin is a deep interest in the human side of 
+software development. I find that whilst computers are fascinating machines, 
+they are mostly a reflection of the people using them. I firmly believe that to 
+be a true well-rounded engineer, focusing on code is not enough; you have to 
+study the people behind the software, too.
 
-    //stuff for ostream operator << ...
-    //stuff for istream operator >> ...
-};
+## What type of posts?
 
-{{< /highlight >}}
+I will publish articles that cover a broad range of topics around software 
+development, agile, and data science.  I will also share articles from other 
+authors who share my philosophy on topics such as agile and have an appreciation 
+for the importance of technical skill in making that style work effectively.
 
-Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut 
-eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin 
-cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped 
-molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.
+## Who is this blog for?
 
-{{< highlight js >}}
+As a technical architect, my main focus has been to understand how to design, 
+build and deploy software systems, to maximise the value development teams can 
+deliver. 
 
-import React, { useState } from "react";
-import { useAsyncEffect } from "use-async-effect2";
-import cpFetch from "cp-fetch"; //cancellable c-promise fetch wrapper
+In doing this I've looked to understand the patterns of good software architecture, 
+and also the processes that support good software design. I've become a big fan 
+of lean and agile methodologies and the resulting focus on evolutionary software 
+architecture. 
 
-export default function TestComponent(props) {
-  const [text, setText] = useState("");
+## Standing on the shoulders of giants
 
-  useAsyncEffect(
-    function* () {
-      setText("fetching...");
-      const response = yield cpFetch(props.url);
-      const json = yield response.json();
-      setText(`Success: ${JSON.stringify(json)}`);
-    },
-    [props.url]
-  );
-
-  return <div>{text}</div>;
-}
-
-{{< /highlight >}}
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-fugiat nulla pariatur.
+Whilst I don't come up with these original ideas, I do a pretty good job of 
+recognising and  packaging the ideas of others into something that is hopefully 
+easy to understand.
