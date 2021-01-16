@@ -1,6 +1,6 @@
 ---
 title: "Hello World"
-date: 2020-09-15T11:30:03+00:00
+date: 2021-01-16T20:46:03+00:00
 draft: false
 aliases: ["/hello-world"]
 tags: ["blog"]
