@@ -3,13 +3,12 @@ title: "Hello World"
 date: 2021-01-16T20:46:03+00:00
 draft: false
 aliases: ["/hello-world"]
-tags: ["blog"]
 hideMeta: false
 disableShare: false
 cover:
-    image: "/images/hello-world.jpg"
+    image: "/posts/images/writing_pad_with_coffee.jpg"
     alt: "Image for post cover"
-    caption: "Img source: yen.io"
+    caption: "Photo by Andrew Neel on Unsplash"
     relative: false
 comments: true
 ---
