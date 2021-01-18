@@ -2,7 +2,7 @@
 title: "How the internet works"
 description: “A complete beginners guide to JavaScript.”
 date: 2021-01-18T12:40:27+00:00
-draft: false
+draft: true
 aliases: ["/how-the-internet-works"]
 tags: [ beginners, webdev, javascript ]
 hideMeta: false
