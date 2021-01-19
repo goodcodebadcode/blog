@@ -7,6 +7,8 @@ aliases: ["/how-the-internet-works"]
 tags: [ beginners, webdev, javascript ]
 hideMeta: false
 disableShare: false
+showToc: true
+tocOpen: true
 cover:
     image: "/posts/images/laptop_and_phone.jpg"
     alt: "Image for post cover"
