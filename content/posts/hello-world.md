@@ -13,45 +13,32 @@ cover:
 comments: true
 ---
 
-Well, it's up. After messing around with Hugo and Netlify environment variables 
-for an hour, my blog is up.
+This blog is a repository of knowledge gained, lessons learned and experiences 
+from the front line of software development over the last fifteen years.
 
-## Why write a blog?
+Written by David, technical architect and principal software engineer.
 
-As a profession, writing software is relatively young, not only that, a large 
-majority of the industry is still getting to grips with the necessary tools and 
-techniques to build great software. This has become even more relevant as people 
-learn to code at an earlier age, as a hobby or for a change in career.
+I learnt my trade as a software developer in the mid 2000’s with Classic ASP, although I spent a large part of my time in the early days writing code in Visual Basic.
 
-So, whilst technologies come and go, the foundational patterns and technical 
-practices are always present. 
+## Good Code vs Bad Code
 
-On the opposite side of that coin is a deep interest in the human side of 
-software development. I find that whilst computers are fascinating machines, 
-they are mostly a reflection of the people using them. I firmly believe that to 
-be a true well-rounded engineer, focusing on code is not enough; you have to 
-study the people behind the software, too.
+This is an image from the [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) 
+book [Clean Code](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) 
+and is used to illustrate a common problem experienced by teams and companies 
+alike.
 
-## What type of posts?
+![Clean Code by Robert C. Martin, page 25](/images/good-code-bad-code.png)
 
-I will publish articles that cover a broad range of topics around software 
-development, agile, and data science.  I will also share articles from other 
-authors who share my philosophy on topics such as agile and have an appreciation 
-for the importance of technical skill in making that style work effectively.
+Clean Code is not only considered one of the greatest programming books of 
+all-time, it is also one of my personal favourites. I think every practicing 
+software developer should at least own a copy, or at least through open minded
+discussion, understand what lies within its pages.
 
-## Who is this blog for?
+## How can I get in touch?
 
-As a technical architect, my main focus has been to understand how to design, 
-build and deploy software systems, to maximise the value development teams can 
-deliver. 
+I believe that blogs can be a two-way discussion, so I welcome emails and 
+comments – as long as they're on topic and polite.
 
-In doing this I've looked to understand the patterns of good software architecture, 
-and also the processes that support good software design. I've become a big fan 
-of lean and agile methodologies and the resulting focus on evolutionary software 
-architecture. 
-
-## Standing on the shoulders of giants
-
-Whilst I don't come up with these original ideas, I do a pretty good job of 
-recognising and  packaging the ideas of others into something that is hopefully 
-easy to understand.
+- [david@goodcodebadcode.com](david@goodcodebadcode.com)
+- [@goodcodebadcode](https://twitter.com/goodcodebadcode/)
+- [GitHub for related code samples](https://github.com/goodcodebadcode/)

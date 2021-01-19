@@ -10,7 +10,7 @@ disableShare: false
 showToc: true
 tocOpen: true
 cover:
-    image: "/posts/images/laptop_and_phone.jpg"
+    image: "/posts/images/laptop_with_code.jpg"
     alt: "Image for post cover"
     caption: "Photo by Sigmund on Unsplash"
     relative: false
@@ -131,7 +131,7 @@ including images and files - this is up to the developers.
 
 ![](/posts/images/chrome_dev_tools_response.png)
 
-### The response from the server is parsed by your browser and displayed
+### The response from the server is displayed
 
 Your browser takes the response from the server and then parses through it 
 doing a full head to toe scan looking for other assets that are listed, such as 
@@ -142,3 +142,5 @@ for each resource.
 Once your browser has finished loading all the resources that were listed in the 
 response, the page will be loaded in the browser window and the connection to 
 the server will be closed.
+
+## Computers are dumb?
