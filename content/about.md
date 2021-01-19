@@ -2,6 +2,7 @@
 title: "About"
 layout: "single"
 url: "/about"
+draft: true
 description: "To code and to code well....that is the goal."
 disableShare: false
 cover:
