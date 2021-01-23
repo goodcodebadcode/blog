@@ -1,6 +1,6 @@
 ---
-title: How the internet works
-description: "“A complete beginners guide to JavaScript.”"
+title: A complete beginners guide to Programming
+description: The internet and how it works
 date: 2021-01-18T12:40:27.000+00:00
 aliases:
 - "/how-the-internet-works"
@@ -48,8 +48,7 @@ You opened a browser, this could be Chrome or Firefox or a number of any alterna
 
 ![](/posts/images/url_parts.png)
 
-> Sometimes you might enter an address like `www.goodcodebadcode.dev/posts`.
-> Here the `www` is a sub-domain that just redirects to the main page. `goodcodebadcode.dev` is the domain and the `/posts` is the path. All together these parts make up the URL (the Uniform Resource Locator).
+> Sometimes you might enter an address like `www.goodcodebadcode.dev/posts`. Here the `www` is a sub-domain that just redirects to the main page. `goodcodebadcode.dev` is the domain and the `/posts` is the path. All together these parts make up the URL (the Uniform Resource Locator).
 
 Now, it should hopefully be obvious, but the website you are attempting to browse is not stored on your machine, but instead needs to be fetched from another computer on the internet, where it is stored. This other computer is called a **server**. Why a server? Well it serves us the website content.
 
