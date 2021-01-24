@@ -21,10 +21,7 @@ I learnt my trade as a software developer in the mid 2000’s with Classic ASP, 
 
 ## Good Code vs Bad Code
 
-This is an image from the [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin)
-book [Clean Code](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)
-and is used to illustrate a common problem experienced by teams and companies
-alike.
+This is an image from the [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) book [Clean Code](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) and is used to illustrate a common problem experienced by teams and companies alike.
 
 ![Clean Code by Robert C. Martin, page 25](/images/good-code-bad-code.png)
 
