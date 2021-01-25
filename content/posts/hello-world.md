@@ -11,6 +11,10 @@ cover:
   caption: Photo by Andrew Neel on Unsplash
   relative: false
 comments: true
+description: ''
+tags: []
+showToc: false
+tocOpen: false
 draft: true
 
 ---

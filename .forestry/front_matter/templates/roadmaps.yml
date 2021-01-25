@@ -49,4 +49,5 @@ fields:
   name: comments
   label: comments
 pages:
+- content/posts/hello-world.md
 - content/posts/roadmaps.md
