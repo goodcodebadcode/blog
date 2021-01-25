@@ -1,6 +1,6 @@
 ---
 title: A complete beginners guide to Programming
-description: The internet and how it works
+description: Part 1
 date: 2021-01-18T12:40:27.000+00:00
 aliases:
 - "/how-the-internet-works"
@@ -23,11 +23,11 @@ draft: true
 ---
 This blog post introduces you to the practicalities of web development. Let us start by looking at how the web works at a high-level.
 
-> Language basics crash course in part 2.
-
 Understanding the web can be intimidating and in a lot of cases confusing. Let us try and break this down into manageable pieces by starting with the basics.
 
-## What is a computer
+> We will cover language basics in part 2.
+
+## What is a computer?
 
 ### How does a computer work?
 
@@ -39,7 +39,13 @@ Understanding the web can be intimidating and in a lot of cases confusing. Let u
 
 ### Software vs Hardware
 
-## How does the internet work?
+## The Internet
+
+### The history of the internet
+
+### The anatomy of the internet
+
+### How does the internet work?
 
 Whether you are checking emails, updating your status on social media, or using watching Netflix, you are using the internet (a.k.a the web). The moment you type a web address into your browser and you hit ENTER, the following occurs:
 
@@ -103,4 +109,93 @@ Your browser takes the response from the server and then parses through it doing
 
 Once your browser has finished loading all the resources that were listed in the response, the page will be loaded in the browser window and the connection to the server will be closed.
 
-## Computers are dumb?
+### How do browsers work?
+
+### How does mobile internet work?
+
+### The anatomy of a website
+
+### The anatomy of a mobile site
+
+### Let’s talk about Netscape
+
+## Frontend, Backend and Full Stack
+
+* [Frontend vs Backend vs Full-stack](https://www.youtube.com/watch?v=pkdgVYehiTE)
+* [The Basics of Web Development](https://www.youtube.com/watch?v=ysEN5RaKOlA)
+* What is Frontend vs. Backend?
+* What do I mean by language?
+* [What are the different types of Programming Languages?](https://www.youtube.com/watch?v=SBXfP3UQ7N8)
+* Let’s talk about Backend
+* [Finding help with problems](https://www.youtube.com/watch?v=WKuNWrxuJ9g)
+* Different programming languages
+* [What Programming Language Should I Learn First?](https://www.youtube.com/watch?v=poJfwre2PIs)
+* What is a Tech Stack
+* Common stacks for web
+
+## Core Concepts of Coding
+
+* Text Editors vs IDEs
+* VS Code
+* Syntax
+* Variables
+* Printing
+* Commenting
+* Strings
+* Arrays
+* Scaling: Vertical vs Horizontal
+* [Programming paradigms](https://www.youtube.com/watch?v=cUjieVW7IgQ)
+* [Declarative Programming](https://www.youtube.com/watch?v=yGh0bjzj4IQ)
+* [Imperative vs. Declarative Programming](https://www.youtube.com/watch?v=JqvMTwnbhnA)
+* [Functional Programming](https://www.youtube.com/watch?v=dAPL7MQGjyM)
+* Object-Orientated Programming (OOP)
+* [LOL](https://www.youtube.com/watch?v=8wUOUmeulNs)
+* [DRY, KISS, YAGNI](https://www.youtube.com/watch?v=4qPYWBHkS4w)
+* [Debugging](https://youtu.be/NTaNksV-DPY)
+
+## Frameworks and APIs
+
+* [What are libraries and frameworks?](https://www.youtube.com/watch?v=LimOOe6I4eo)
+* What is a framework?
+* Frontend Frameworks
+* Backend Frameworks
+* What is an IDE? How is this different?
+* Libraries
+* What is an API?
+
+## Git and Version Control
+
+* Git
+* Continuous Integration (CI)
+* [Velocity 09: John Allspaw and Paul Hammond, "10+ Deploys Per day”](https://www.youtube.com/watch?v=LdOe18KhtT4)
+
+## How do we build software?
+
+* Pair programming
+* [How to Pair Program](https://www.youtube.com/watch?v=YhV4TaZaB84)
+* [Code reviews](https://www.youtube.com/watch?v=EyL7mqwpZhk)
+* [Does pair programming actually save time?](https://www.youtube.com/watch?v=G4CMZL_52rs)
+* Agile
+* DevOps
+* [Software Development Lifecycle (SDLC)](https://www.youtube.com/watch?v=gNmrGZSGK1k)
+* [Software Testing Lifecycle (STLC)](https://www.youtube.com/watch?v=goaZTAzsLMk)
+
+## The Cloud
+
+* SaaS, PaaS and IaaS
+* [What is Cloud Computing?](https://www.youtube.com/watch?v=kQnNd-DyrpA)
+* [Explaining SaaS, PaaS, and IaaS](https://www.youtube.com/watch?v=b11kNOlhfms)
+* [Public Cloud vs Private Cloud vs Hybrid Cloud](https://www.youtube.com/watch?v=3WIJ4axzFlU)
+* [Introduction To Amazon Web Services](https://www.youtube.com/watch?v=PW-V-72MJNY)
+* [Introduction to Heroku?](https://www.youtube.com/watch?v=QTOkqzCTGxw)
+* [What is Azure?](https://www.youtube.com/watch?v=3Arj5zlUPG4)
+* [AWS vs Azure](https://www.youtube.com/watch?v=xCabPpcq8Ac)
+
+## Mobile Development
+
+* Hybrid apps
+* RWD
+* Mobile development
+* SWIFT
+
+## Next steps
