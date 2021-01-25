@@ -25,7 +25,19 @@ This blog post introduces you to the practicalities of web development. Let us s
 
 > Language basics crash course in part 2.
 
-Understanding the web can be intimidating and in a lot of cases confusing. Let us try and break this down into manageable pieces.
+Understanding the web can be intimidating and in a lot of cases confusing. Let us try and break this down into manageable pieces by starting with the basics.
+
+## What is a computer
+
+### How does a computer work?
+
+### What is an operating system?
+
+### Operating systems today
+
+### Desktop Software
+
+### Software vs Hardware
 
 ## How does the internet work?
 
