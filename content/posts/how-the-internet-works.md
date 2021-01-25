@@ -29,6 +29,12 @@ Understanding the web can be intimidating and in a lot of cases confusing. Let u
 
 ## What is a computer?
 
+A **computer** is a machine that performs processes, calculations and operations based on instructions provided by an end-user through software. It has the ability to accept  **input**, process it, and then produce **outputs**.
+
+A **computer** is a machine that can be instructed to carry out sequences of arithmetic or logical operations automatically via **computer** programming. 
+
+Modern **computers** have the ability to follow generalised sets of operations, called programs. These programs enable **computers** to perform an extremely wide range of tasks.
+
 ### How does a computer work?
 
 ### What is an operating system?
