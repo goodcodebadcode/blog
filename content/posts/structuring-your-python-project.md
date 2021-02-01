@@ -115,12 +115,7 @@ Let’s take a look at a simple project:
     ├── requirements.txt
     └── setup.py   
 
-1. Create 2 files. The main demo file (main.py) and then a second file (funcs.py) which the main file will then call.
-2. In funcs.py create two functions which print a basic console message.
-
-To use the functions from funcs.py, you need to import the functions as long as they are in the same directory. You can then call the functions through the funcs module.
-
-When you simply: import funcs — you are essentially importing everything contained in funcs. But if you only want access to a single function you can use: from funcs import functionName.
+## How importing works
 
 ### Importing modules by alias
 
