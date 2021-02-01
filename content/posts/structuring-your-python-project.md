@@ -90,6 +90,20 @@ Any Python (`.py`) file is a module, and a collection of modules in a single dir
 
 This means that if you have two files in the same folder you can load the definitions and statements from one module for use in the other module.
 
+In short, **modules are named by filenames**, and **packages are named by their directory name**.
+
+    root_folder/
+    |-- a first folder/
+    |   |-- holidays.mov
+    |   |-- javascript-file.js
+    |   `-- some_picture.jpg
+    |-- documents/
+    |   |-- spreadsheet.xls
+    |   |-- manual.pdf
+    |   |-- document.docx
+    |   `-- presentation.ppt
+    |       `-- test    
+
 1. Create 2 files. The main demo file (main.py) and then a second file (funcs.py) which the main file will then call.
 2. In funcs.py create two functions which print a basic console message.
 
