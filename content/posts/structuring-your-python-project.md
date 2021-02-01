@@ -27,6 +27,8 @@ In practical terms, architecture means code whose logic and dependencies are cle
 
 **tl;dr**: This is a structure regularly used by our internal data science teams. The ref. repository is [available on GitHub]().
 
+There are not a lot of complex rules here because Python projects can be simple.
+
     /apidocs
     /docs
     /lib
@@ -80,7 +82,7 @@ Some of these files will be new to you, so let’s take a quick look at what eac
 * **setup.py**:
 * **test_requirements.txt**:
 
-There are not a lot of complex rules here because Python projects can be simple. The files and folders included here are not necessarily exhaustive, but I recommend keeping the number of files to a minimum if you plan on using a basic layout like this.
+The files and folders included here are not necessarily exhaustive, but I recommend keeping the number of files to a minimum if you plan on using a basic layout like this.
 
 ## Modules and Packages
 
