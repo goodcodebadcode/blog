@@ -59,9 +59,9 @@ In truth, I have been guilty of this too and have seen many developers and teams
 
 The top-level directory contains other related files.
 
-The hardest choice is whether or not to use a `/src` tree. Python doesn't have a distinction between `/src`, `/lib`, and `/bin` like Java or C has. Since a top-level `/src` directory is seen by some as meaningless, your top-level directory can be the top-level architecture of your application, for example `/sample`. 
+The hardest choice is whether or not to use a `/src` tree. Python doesn't have a distinction between `/src`, `/lib`, and `/bin` like Java or C has. Since a top-level `/src` directory is seen by some as meaningless, your top-level directory can be the top-level architecture of your application, for example `/sample`.
 
-**Remember**: Your module packages are the core focus of your project. They should not be hidden away. If, however, your module consists of only a single file, place it directly in your the root directory of your project.
+> **Remember**: Your module packages are the core focus of your project. They should not be hidden away. If, however, your module consists of only a single file, place it directly in your the root directory of your project.
 
 I recommend putting all of this under a "name-of-project" directory for example. So, if you're writing an application named `quux`, the directory that contains the structure is named `/quux`. This then means that another project's `PYTHONPATH`, then, can include `/path/to/quux/sample` to reuse the `QUUX.sample` module.
 
@@ -84,9 +84,11 @@ There are not a lot of silly rules here because Python projects can be simple. T
 
 ## Modules
 
-A module is a file containing Python definitions and statements. The file name is the module name with the suffix .py appended. Within a module, the module’s name (as a string) is available as the value of the global variable **name**.
+A module in Python is simply a file with a `.py` file extension. If you have two files in the same folder you can load the definitions and statements from one module for use in the other module. 
 
-Modules in Python are simply files, if you have two files I the same folder we can load a class from one module for use in the other module.
+A module’s name is available as the value of the global variable `__name__`.
+
+Modules in Python are simply files, 
 
 1. Create 2 files. The main demo file (main.py) and then a second file (funcs.py) which the main file will then call.
 2. In funcs.py create two functions which print a basic console message.
@@ -137,7 +139,7 @@ Now restart the terminal.
 
 This process is the same for when you import and use other packages in Python. However, they are not located in the same directory but rather located within your package directory for your python installation.
 
-### **if name** == '**main**'
+### **if __name__** == '**main**'
 
 You will see this a lot in Python.
 
