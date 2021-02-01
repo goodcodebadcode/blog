@@ -75,11 +75,11 @@ Some of these files will be new to you, so let’s take a quick look at what eac
 * **.pylintrc**: Allows you to tell Pylint to ignore certain checks.
 * **CHANGELOG.rst**: A log or record of all notable changes made to a project.
 * **CONTRIBUTING.rst**: Create guidelines to communicate how people should contribute to your project.
-* **LICENSE**:
+* **LICENSE**: Describes the license for a project. It’s always a good idea to have one if you’re distributing code. The filename is in all caps by convention.
 * **makefile**:
-* **README.rst**:
-* **requirements.txt**:
-* **setup.py**:
+* **README.rst**: This is a [Markdown](https://en.wikipedia.org/wiki/Markdown) (or [reStructuredText](https://en.wikipedia.org/wiki/ReStructuredText)) file for documenting the purpose and usage of your application.
+* **requirements.txt**: Defines outside Python dependencies and their versions for your application.
+* **setup.py**: Can also be used to define dependencies.
 * **test_requirements.txt**:
 
 The files and folders included here are not necessarily exhaustive, but I recommend keeping the number of files to a minimum if you plan on using a basic layout like this.
