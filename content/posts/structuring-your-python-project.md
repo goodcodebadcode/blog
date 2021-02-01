@@ -84,11 +84,13 @@ The files and folders included here are not necessarily exhaustive, but I recomm
 
 ## Modules and Packages
 
-Any Python (`.py`) file is a module, and a collection of modules in a single directory with an `__init__.py` file is a package. 
+Any Python (`.py`) file is a module, and a collection of modules in a single directory with an `__init__.py` file is a package.
 
 This means that if you have two files in the same folder you can load the definitions and statements from one module for use in the other module.
 
 In short, **modules are named by filenames**, and **packages are named by their directory name**.
+
+Let’s take a look at an example simple project:
 
     helloworld/
     │
@@ -101,9 +103,15 @@ In short, **modules are named by filenames**, and **packages are named by their 
     │   ├── helloworld_tests.py
     │   └── helpers_tests.py
     │
+    ├── .editorconfig
+    ├── .gitattributes
     ├── .gitignore
+    ├── .pylintrc
+    ├── CHANGELOG.rst
+    ├── CONTRIBUTING.rst
     ├── LICENSE
-    ├── README.md
+    ├── makefile
+    ├── README.rst
     ├── requirements.txt
     └── setup.py   
 
