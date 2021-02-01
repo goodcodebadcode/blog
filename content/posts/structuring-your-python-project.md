@@ -17,7 +17,17 @@ image = ""
 relative = false
 
 +++
-Often when a developer joins an established team, they are left to find their way around the source code of whatever project they happened to be assigned to. Structuring your python projects can often be one of the most overlooked parts of on boarding new developers.
+Just as code style, API design, and automation are essential for a healthy productive development cycle. Project structure is a crucial part of your application's architecture.
+
+By architecture we mean the decisions we make concerning how our project best meets its objective. This means considering how to best leverage Python’s features to create clean, effective code. In practical terms, architecture means making clean code whose logic and dependencies are clear as well as how the files and folders are organised in the filesystem.
+
+> Martin Fowler describes architecture as: “The highest-breakdown of a system into its parts.”
+
+## Sample Project Structure
+
+**tl;dr**: This is what [Kenneth Reitz recommended in 2013](https://kennethreitz.org/essays/2013/01/27/repository-structure-and-python). This repository is [available on GitHub](https://github.com/kennethreitz/samplemod).
+
+When a developer joins a new team, they are left to find their way around the source code of whatever project they happened to be assigned to. Structuring your python projects can often be one of the most overlooked parts of on boarding new developers.
 
 In this post, I want to address the **structure a Python project** so that it is easy to understand, and more importantly reusable.
 
@@ -74,7 +84,7 @@ Now restart the terminal.
 
 ## Packages
 
-1. Create a directory and include a file: __init__.py: This can be blank but it tells the python interpreter that this directory should be treated as a package.
+1. Create a directory and include a file: **init**.py: This can be blank but it tells the python interpreter that this directory should be treated as a package.
 2. Create a new file: say.py: Add a single function hello and pass a name argument, console print ‘Hello {name}’.
 3. Using the python interpreter run the package. You do not have to be within the package directory, instead we will run the package from outside of the directory. First import the package and then invoke the hello function.
 4. Repeat the process for creating sub-packages in the main package.
@@ -82,13 +92,13 @@ Now restart the terminal.
 
 This process is the same for when you import and use other packages in Python. However, they are not located in the same directory but rather located within your package directory for your python installation.
 
-### **if __name__ == '__main__'**
+### **if name** == '**main**'
 
 You will see this a lot in Python.
 
-To start let us print __name__ (the result is __main__), so what exactly is going on here. Before Python runs any code, it sets a few special variables. One of these special variables is __name__. So when we run some code is file hello.py, Python behind the scenes is setting __name__ to equal __main__.
+To start let us print **name** (the result is **main**), so what exactly is going on here. Before Python runs any code, it sets a few special variables. One of these special variables is **name**. So when we run some code is file hello.py, Python behind the scenes is setting **name** to equal **main**.
 
-When we import additional modules we are running the code of the imported module, in effect. Python then sets __name__ to the name of the file for the import.
+When we import additional modules we are running the code of the imported module, in effect. Python then sets **name** to the name of the file for the import.
 
 So why put your code into a separate main method. It allows the bye.py to call hello.say directly from within the bye.py file.
 
