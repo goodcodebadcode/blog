@@ -94,6 +94,8 @@ Let’s take a look at a simple project:
 
     todo/
     │
+    ├── docs/
+    ├── lib/
     ├── todo/
     │   ├── __init__.py
     │   ├── forms.py
