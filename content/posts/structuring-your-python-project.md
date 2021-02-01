@@ -92,16 +92,21 @@ In short, **modules are named by filenames**, and **packages are named by their 
 
 Let’s take a look at a simple project:
 
-    helloworld/
+    todo/
     │
-    ├── helloworld/
+    ├── todo/
     │   ├── __init__.py
-    │   ├── helloworld.py
-    │   └── helpers.py
+    │   ├── forms.py
+    │   ├── models.py
+    │   ├── templates/
+    │   │   ├── base.html
+    │   │   └── index.html
+    │   └── views.py
     │
     ├── tests/
-    │   ├── helloworld_tests.py
-    │   └── helpers_tests.py
+    │   ├── forms_tests.py
+    │   ├── models_tests.py
+    │   └── views_tests.py
     │
     ├── .editorconfig
     ├── .gitattributes
