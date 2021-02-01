@@ -7,7 +7,7 @@ disableShare = false
 draft = true
 hideMeta = false
 showToc = false
-tags = []
+tags = ["education", "architecture", "python"]
 title = "Structuring your Python project"
 tocOpen = false
 [cover]
