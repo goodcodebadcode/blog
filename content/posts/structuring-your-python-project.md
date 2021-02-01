@@ -39,11 +39,11 @@ There are not a lot of complex rules here because Python projects can be simple.
     .editorconfig
     .gitattributes
     .gitignore
-    .pylintrc
     CHANGELOG.rst
     CONTRIBUTING.rst
     LICENSE
     READNE.rst
+    pylintrc
     makefile
     requirements.txt
     setup.py
@@ -71,10 +71,10 @@ Some of these files will be new to you, so let’s take a quick look at what eac
 * **.editorconfig**: Is a file format and collection of text editor plugins for maintaining consistent coding styles between different editors and IDEs.
 * .**gitattributes**: A simple text file that gives attributes to pathnames.
 * **.gitignore**: Specifies intentionally untracked files that Git should ignore.
-* **.pylintrc**: Allows you to tell Pylint to ignore certain checks.
 * **CHANGELOG.rst**: A log or record of all notable changes made to a project.
 * **CONTRIBUTING.rst**: Create guidelines to communicate how people should contribute to your project.
 * **LICENSE**: Describes the license for a project. It’s always a good idea to have one if you’re distributing code. The filename is in all caps by convention.
+* **pylintrc**: Allows you to tell Pylint to ignore certain checks.
 * **makefile**:
 * **README.rst**: This is a [Markdown](https://en.wikipedia.org/wiki/Markdown) (or [reStructuredText](https://en.wikipedia.org/wiki/ReStructuredText)) file for documenting the purpose and usage of your application.
 * **requirements.txt**: Defines outside Python dependencies and their versions for your application.
@@ -105,6 +105,7 @@ Let’s take a look at a simple project:
     │   └── views.py
     │
     ├── tests/
+    │   ├── __init__.py
     │   ├── forms_tests.py
     │   ├── helpers_tests.py
     │   ├── models_tests.py
@@ -113,11 +114,11 @@ Let’s take a look at a simple project:
     ├── .editorconfig
     ├── .gitattributes
     ├── .gitignore
-    ├── .pylintrc
     ├── CHANGELOG.rst
     ├── CONTRIBUTING.rst
     ├── LICENSE
     ├── makefile
+    ├── pylintrc
     ├── README.rst
     ├── requirements.txt
     └── setup.py   
