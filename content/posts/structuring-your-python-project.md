@@ -82,13 +82,15 @@ Some of these files will be new to you, so let’s take a quick look at what eac
 
 There are not a lot of silly rules here because Python projects can be simple. The files and folders included here are not necessarily exhaustive, but I recommend keeping the number of files to a minimum if you plan on using a basic layout like this.
 
-## Modules
+## Modules and Packages
 
-A module in Python is simply a file with a `.py` file extension. If you have two files in the same folder you can load the definitions and statements from one module for use in the other module. 
+Any Python file is a module, and a collection of modules in a directory is a package. Just remember to add an `__init__.py` file. Otherwise, it creates an implicit namespace package.
 
-A module’s name is available as the value of the global variable `__name__`.
+If you have two files in the same folder you can load the definitions and statements from one module for use in the other module.
 
-Modules in Python are simply files, 
+You have one last
+
+Modules in Python are simply files,
 
 1. Create 2 files. The main demo file (main.py) and then a second file (funcs.py) which the main file will then call.
 2. In funcs.py create two functions which print a basic console message.
@@ -139,7 +141,7 @@ Now restart the terminal.
 
 This process is the same for when you import and use other packages in Python. However, they are not located in the same directory but rather located within your package directory for your python installation.
 
-### **if __name__** == '**main**'
+### **if name** == '**main**'
 
 You will see this a lot in Python.
 
