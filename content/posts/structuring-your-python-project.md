@@ -12,20 +12,24 @@ title = "Structuring your Python project"
 tocOpen = false
 [cover]
 alt = ""
-caption = ""
-image = ""
+caption = "Photo by Lance Anderson  on Unsplash Rock and Roll Hall of Fame"
+image = "/uploads/rock-and-roll-hall-of-fame.jpg"
 relative = false
 
 +++
 Just as code style, API design, and automation are essential for a healthy productive development cycle. Project structure is a crucial part of your application's architecture.
 
-By architecture we mean the decisions we make concerning how our project best meets its objective. This means considering how to best leverage Python’s features to create clean, effective code. In practical terms, architecture means making clean code whose logic and dependencies are clear as well as how the files and folders are organised in the filesystem.
+By architecture we mean the decisions we make when breaking down our project into its constituent parts, so that it achieves all of the technical and operational requirements so that it best meets its objective. This means considering how we optimise for performance, security, manageability and how to best leverage Python’s features to create clean, effective code. 
+
+In practical terms, architecture means making clean code whose logic and dependencies are clear as well as how the files and folders are organised in the filesystem.
 
 > Martin Fowler describes architecture as: “The highest-breakdown of a system into its parts.”
 
 ## Sample Project Structure
 
 **tl;dr**: This is what [Kenneth Reitz recommended in 2013](https://kennethreitz.org/essays/2013/01/27/repository-structure-and-python). This repository is [available on GitHub](https://github.com/kennethreitz/samplemod).
+
+when breaking down a project into parts, so that it meets all of the technical and operational requirements.
 
 When a developer joins a new team, they are left to find their way around the source code of whatever project they happened to be assigned to. Structuring your python projects can often be one of the most overlooked parts of on boarding new developers.
 
