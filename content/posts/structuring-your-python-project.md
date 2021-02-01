@@ -97,6 +97,7 @@ Let’s take a look at a simple project:
     ├── todo/
     │   ├── __init__.py
     │   ├── forms.py
+    │   ├── helpers.py
     │   ├── models.py
     │   ├── templates/
     │   │   ├── base.html
@@ -105,6 +106,7 @@ Let’s take a look at a simple project:
     │
     ├── tests/
     │   ├── forms_tests.py
+    │   ├── helpers_tests.py
     │   ├── models_tests.py
     │   └── views_tests.py
     │
