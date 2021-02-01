@@ -51,4 +51,5 @@ fields:
 pages:
 - content/posts/hello-world.md
 - content/posts/roadmaps.md
+- content/posts/structuring-your-python-project.md
 - content/posts/what-is-clean-code.md
