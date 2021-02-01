@@ -88,10 +88,6 @@ Any Python file is a module, and a collection of modules in a directory is a pac
 
 If you have two files in the same folder you can load the definitions and statements from one module for use in the other module.
 
-You have one last
-
-Modules in Python are simply files,
-
 1. Create 2 files. The main demo file (main.py) and then a second file (funcs.py) which the main file will then call.
 2. In funcs.py create two functions which print a basic console message.
 
