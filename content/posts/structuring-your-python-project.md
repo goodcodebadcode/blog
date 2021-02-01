@@ -19,27 +19,41 @@ relative = false
 +++
 Just as code style, API design, and automation are essential for a healthy productive development cycle. Project structure is a crucial part of your application's architecture.
 
-By architecture we mean the decisions we make when breaking down our project into its constituent parts, so that it achieves all of the technical and operational requirements so that it best meets its objective. This means considering how we optimise for performance, security, manageability and how to best leverage Python’s features to create clean, effective code. 
-
-In practical terms, architecture means making clean code whose logic and dependencies are clear as well as how the files and folders are organised in the filesystem.
-
 > Martin Fowler describes architecture as: “The highest-breakdown of a system into its parts.”
+
+By architecture we mean the decisions we make when breaking down our project into its constituent parts, so that it achieves all of the technical and operational requirements so that it best meets its objective. This means considering how we optimise for performance, security, manageability and how to best leverage Python’s features to create clean, effective code.
+
+In practical terms, architecture means code whose logic and dependencies are clear as well as how the files and folders are organised in the filesystem.
 
 ## Sample Project Structure
 
-**tl;dr**: This is what [Kenneth Reitz recommended in 2013](https://kennethreitz.org/essays/2013/01/27/repository-structure-and-python). This repository is [available on GitHub](https://github.com/kennethreitz/samplemod).
+**tl;dr**: This is a structure regularly used by our data science teams. The repository is [available on GitHub]().
 
-when breaking down a project into parts, so that it meets all of the technical and operational requirements.
+    /docs
+    /sample/__init__.py
+    /sample/main.py
+    /tests
+    .editorconfig
+    .gitignore
+    .pylintrc
+    CHANGELOG.rst
+    CONTRIBUTING.rst
+    LICENSE
+    READNE.rst
+    makefile
+    requirements.txt
+    setup.py
+    test_requirements.txt
 
-When a developer joins a new team, they are left to find their way around the source code of whatever project they happened to be assigned to. Structuring your python projects can often be one of the most overlooked parts of on boarding new developers.
+Structuring your Python projects can often be one of the most overlooked parts of onboarding new developers onto a team. If your repository is a massive dump of files or a nested mess of directories, any new developer or contributer will have difficulty getting to grips with your code, regardless of how beautiful your documentation might be.
 
-In this post, I want to address the **structure a Python project** so that it is easy to understand, and more importantly reusable.
+In truth, I have been guilty of this too and have seen many developers and teams get this simple step wrong, often stumbling through a jumble of common mistakes until they arrive at something that at least works e.g. playing tricks with `sys.path` is an instant DQ in my book.
 
-We will explore import statements, modules, packages, and how to structure your project.
+There are not a lot of silly rules here because Python projects can be simple.
 
-Many developers and teams get this wrong, stumbling through a jumble of common mistakes until they arrive at something that at least works.
+The hardest choice is whether or not to use a `/src` tree. Python doesn't have a distinction between `/src`, `/lib`, and `/bin` like Java or C has. Since a top-level `/src` directory is seen by some as meaningless, your top-level directory can be the top-level architecture of your application.
 
-As we create more and more classes we need a way to organise our code in such a way to make them available and easy to find.
+I recommend putting all of this under a "name-of-project" directory for example. So, if you're writing an application named `quux`, the directory that contains all this stuff is named `/quux`. This then means that another project's `PYTHONPATH`, then, can include `/path/to/quux/sample` to reuse the `QUUX.sample` module.
 
 ## Modules
 
