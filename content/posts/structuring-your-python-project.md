@@ -47,7 +47,6 @@ There are not a lot of complex rules here because Python projects can be simple.
     makefile
     requirements.txt
     setup.py
-    test_requirements.txt
 
 Structuring your Python projects can often be one of the most overlooked parts of onboarding new developers onto a team. If your repository is a massive dump of files or a nested mess of directories, any new developer or contributor will have difficulty getting to grips with your code, regardless of how beautiful your documentation might be.
 
@@ -80,7 +79,6 @@ Some of these files will be new to you, so let’s take a quick look at what eac
 * **README.rst**: This is a [Markdown](https://en.wikipedia.org/wiki/Markdown) (or [reStructuredText](https://en.wikipedia.org/wiki/ReStructuredText)) file for documenting the purpose and usage of your application.
 * **requirements.txt**: Defines outside Python dependencies and their versions for your application.
 * **setup.py**: Can also be used to define dependencies.
-* **test_requirements.txt**:
 
 The files and folders included here are not necessarily exhaustive, but I recommend keeping the number of files to a minimum if you plan on using a basic layout like this.
 
