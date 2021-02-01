@@ -80,11 +80,11 @@ Some of these files will be new to you, so let’s take a quick look at what eac
 * **setup.py**:
 * **test_requirements.txt**:
 
-There are not a lot of silly rules here because Python projects can be simple. The files and folders included here are not necessarily exhaustive, but I recommend keeping the number of files to a minimum if you plan on using a basic layout like this.
+There are not a lot of complex rules here because Python projects can be simple. The files and folders included here are not necessarily exhaustive, but I recommend keeping the number of files to a minimum if you plan on using a basic layout like this.
 
 ## Modules and Packages
 
-Any Python file is a module, and a collection of modules in a directory is a package. Just remember to add an `__init__.py` file. Otherwise, it creates an implicit namespace package.
+Any Python file is a module, and a collection of modules in a directory is a package. Just remember to add an `__init__.py` file. Otherwise, it creates an [implicit namespace package](https://www.python.org/dev/peps/pep-0420/).
 
 If you have two files in the same folder you can load the definitions and statements from one module for use in the other module.
 
