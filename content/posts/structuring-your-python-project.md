@@ -25,11 +25,14 @@ In practical terms, architecture means code whose logic and dependencies are cle
 
 ## Sample Project Structure
 
-**tl;dr**: This is a structure regularly used by our data science teams. The repository is [available on GitHub]().
+**tl;dr**: This is a structure regularly used by our internal data science teams. The ref. repository is [available on GitHub]().
 
+    /apidocs
     /docs
+    /lib
     /sample/__init__.py
     /sample/main.py
+    /scripts
     /tests
     .editorconfig
     .gitignore
@@ -47,11 +50,21 @@ Structuring your Python projects can often be one of the most overlooked parts o
 
 In truth, I have been guilty of this too and have seen many developers and teams get this simple step wrong, often stumbling through a jumble of common mistakes until they arrive at something that at least works e.g. playing tricks with `sys.path` is an instant DQ in my book.
 
-There are not a lot of silly rules here because Python projects can be simple.
+* **/apidocs**: Epydoc-generedted API docs.
+* **/docs**: All your documentation goes here.
+* **/lib**: For any C-Language libraries.
+* **/scripts** or **/bin**: Any command-line related items.
+* **/tests**: For your tests.
 
-The hardest choice is whether or not to use a `/src` tree. Python doesn't have a distinction between `/src`, `/lib`, and `/bin` like Java or C has. Since a top-level `/src` directory is seen by some as meaningless, your top-level directory can be the top-level architecture of your application.
+The top-level directory contains other related files.
 
-I recommend putting all of this under a "name-of-project" directory for example. So, if you're writing an application named `quux`, the directory that contains all this stuff is named `/quux`. This then means that another project's `PYTHONPATH`, then, can include `/path/to/quux/sample` to reuse the `QUUX.sample` module.
+The hardest choice is whether or not to use a `/src` tree. Python doesn't have a distinction between `/src`, `/lib`, and `/bin` like Java or C has. Since a top-level `/src` directory is seen by some as meaningless, your top-level directory can be the top-level architecture of your application, for example `/sample`. 
+
+Remember: Your module packages is the core focus of your project. They should not be tucked away. If, however, your module consists of only a single file, you can place it directly in your root directory.
+
+I recommend putting all of this under a "name-of-project" directory for example. So, if you're writing an application named `quux`, the directory that contains the structure is named `/quux`. This then means that another project's `PYTHONPATH`, then, can include `/path/to/quux/sample` to reuse the `QUUX.sample` module.
+
+There are not a lot of silly rules here because Python projects can be simple. You should feel free to add or remove any directories that are not used.
 
 ## Modules
 
