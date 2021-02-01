@@ -35,6 +35,7 @@ In practical terms, architecture means code whose logic and dependencies are cle
     /scripts
     /tests
     .editorconfig
+    .gitattributes
     .gitignore
     .pylintrc
     CHANGELOG.rst
@@ -60,11 +61,26 @@ The top-level directory contains other related files.
 
 The hardest choice is whether or not to use a `/src` tree. Python doesn't have a distinction between `/src`, `/lib`, and `/bin` like Java or C has. Since a top-level `/src` directory is seen by some as meaningless, your top-level directory can be the top-level architecture of your application, for example `/sample`. 
 
-Remember: Your module packages is the core focus of your project. They should not be tucked away. If, however, your module consists of only a single file, you can place it directly in your root directory.
+**Remember**: Your module packages are the core focus of your project. They should not be hidden away. If, however, your module consists of only a single file, place it directly in your the root directory of your project.
 
 I recommend putting all of this under a "name-of-project" directory for example. So, if you're writing an application named `quux`, the directory that contains the structure is named `/quux`. This then means that another project's `PYTHONPATH`, then, can include `/path/to/quux/sample` to reuse the `QUUX.sample` module.
 
-There are not a lot of silly rules here because Python projects can be simple. You should feel free to add or remove any directories that are not used.
+Some of these files will be new to you, so let’s take a quick look at what each of them does.
+
+* **.editorconfig**: Is a file format and collection of text editor plugins for maintaining consistent coding styles between different editors and IDEs.
+* .**gitattributes**: A simple text file that gives attributes to pathnames.
+* **.gitignore**: Specifies intentionally untracked files that Git should ignore.
+* **.pylintrc**: Allows you to tell Pylint to ignore certain checks.
+* **CHANGELOG.rst**: A log or record of all notable changes made to a project.
+* **CONTRIBUTING.rst**: Create guidelines to communicate how people should contribute to your project.
+* **LICENSE**:
+* **makefile**:
+* **README.rst**:
+* **requirements.txt**:
+* **setup.py**:
+* **test_requirements.txt**:
+
+There are not a lot of silly rules here because Python projects can be simple. The files and folders included here are not necessarily exhaustive, but I recommend keeping the number of files to a minimum if you plan on using a basic layout like this.
 
 ## Modules
 
