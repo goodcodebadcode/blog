@@ -86,9 +86,9 @@ The files and folders included here are not necessarily exhaustive, but I recomm
 
 ## Modules and Packages
 
-Any Python file is a module, and a collection of modules in a directory is a package. Just remember to add an `__init__.py` file. Otherwise, it creates an [implicit namespace package](https://www.python.org/dev/peps/pep-0420/).
+Any Python (`.py`) file is a module, and a collection of modules in a single directory with an `__init__.py` file is a package. 
 
-If you have two files in the same folder you can load the definitions and statements from one module for use in the other module.
+This means that if you have two files in the same folder you can load the definitions and statements from one module for use in the other module.
 
 1. Create 2 files. The main demo file (main.py) and then a second file (funcs.py) which the main file will then call.
 2. In funcs.py create two functions which print a basic console message.
