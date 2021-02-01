@@ -21,8 +21,6 @@ Just as code style, API design, and automation are essential for a healthy produ
 
 > Martin Fowler describes architecture as: “The highest-breakdown of a system into its parts.”
 
-By architecture we mean the decisions we make when breaking down our project into its constituent parts, so that it achieves all of the technical and operational requirements so that it best meets its objective. This means considering how we optimise for performance, security, manageability and how to best leverage Python’s features to create clean, effective code.
-
 In practical terms, architecture means code whose logic and dependencies are clear as well as how the files and folders are organised in the filesystem.
 
 ## Sample Project Structure
