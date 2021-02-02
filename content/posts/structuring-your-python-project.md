@@ -139,15 +139,47 @@ So when we import `re.py`, we are in fact importing `re.py` and its own several 
 
 I have often heard newer Python developers ask why the inner module, `enum.py` in our example is being imported, since they didn't ask for it directly in their code. The answer is simple: we imported `re`, and that imports `enum`.
 
+## Best practices for imports
+
+There are a number of ways of importing, but there are few written and unwritten rules that you should follow.
+
+For practical purposes, let us assume we have the following two files `main.py` and `bank_account.py` located in the same directory.
+
+    modules-demo/
+    ├── bank_account.py
+    └── main.py
+
+The contents of `bank_account.py` are:
+
+    # bank_account.py
+    
+    def close():
+        print("We are sorry to see you go.")
+    
+    def open():
+        print("Thank you for opening an account.")
+
+And now we want to call the `open()` function from within `main.py`. The simplest way to do this is to import the `bank_account` module:
+
+    import bank_account
+    
+    bank_account.open()
+
+We refer to `bank_account` as the **namespace** of `open()` and `close()`. 
+
+> **Warning**: Do not confuse **namespace** with **implicit namespace package**. They're two different things.
+
+### NEVER import everything, this is very bad!
+
+We do have the ability to import everything from a module using the asterisk (__*__), however, this frowned upon. And here is why. 
+
+### Importing a module
+
 ### Importing modules by alias
 
 To alias an import so that we do not have reference the full name throughout, we can simply:
 
 ### Importing a single function
-
-### Importing everything
-
-We do have the ability to import everything from a module using the asterisk (*), however, this frowned upon.
 
 ### **How does Python know where my modules are?**
 
