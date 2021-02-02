@@ -129,13 +129,13 @@ Let’s take a look at a simple todo project:
 
 ## How importing works
 
-When you import a module, we are actually running it. This means that any recursive `import` statements within the module are also being run.
+When you import a module, we are actually running it. This means that any recursive `import` statements within the module are also run.
 
 ```python
 import re
 ```
 
-
+So when we import `re.py`, we are in fact importing `re.py` and its own import statements, which are then executed as well. That doesn't mean they're available to the file we imported `re` from, but it does mean those files have to exist. If, for some unlikely reason, `enum.py` was deleted on your environment, and you ran `import re`, it would fail with an error
 
 ### Importing modules by alias
 
