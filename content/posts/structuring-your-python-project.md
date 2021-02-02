@@ -135,7 +135,9 @@ When you import a module, we are actually running it. This means that any recurs
 import re
 ```
 
-So when we import `re.py`, we are in fact importing `re.py` and its own import statements, which are then executed as well. That doesn't mean they're available to the file we imported `re` from, but it does mean those files have to exist. If, for some unlikely reason, `enum.py` was deleted on your environment, and you ran `import re`, it would fail with an error
+So when we import `re.py`, we are in fact importing `re.py` and its own several import statements, which are also run. That doesn't mean those imports are available to the file we imported `re` from, but it does mean those files have to exist. If, for some unlikely reason, `enum.py` was deleted on your environment, and you ran `import re`, it would fail with an error.
+
+I have often heard newer Python developers ask why the inner module, `enum.py` in our example is being imported, since they didn't ask for it directly in their code. The answer is simple: we imported `re`, and that imports `enum`.
 
 ### Importing modules by alias
 
