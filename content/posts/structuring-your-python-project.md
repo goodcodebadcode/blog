@@ -101,20 +101,23 @@ Let’s take a look at a simple project:
     │   ├── api.http
     │   ├── auth.py
     │   ├── helpers.py
-    │   ├── main.py
+    │   └── main.py
     │
     ├── data/
     │   ├── __init__.py
     │   ├── tasks.py
-    │   ├── users.py
+    │   └── users.py
     │
     ├── tests/
-    │   ├── __init__.py
-    │   ├── api_tests.py
-    │   ├── auth_tests.py
-    │   ├── helpers_tests.py
-    │   ├── main_tests.py
-    │   └── data_tests.py
+    │   ├── todo/
+    │   │   ├── api_tests.py
+    │   │   ├── auth_tests.py
+    │   │   ├── helpers_tests.py
+    │   │   └── main_tests.py
+    │   │
+    │   └── data/
+    │       ├── tasks_tests.py
+    │       └── users_tests.py
     │
     ├── .editorconfig
     ├── .gitattributes
