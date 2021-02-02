@@ -176,12 +176,24 @@ At a certain point, however, namespaces can become a pain, especially with neste
     
     open()
 
-It is important to note here, however, that neither `close()` nor `bank_account.close()` will not work in this last scenario. This is because we did not import the function outright. To gain access to `close()` we have to import it as well.
+It is important to note, that neither `close()` nor `bank_account.close()` will work in this last scenario. This is because we did not import the function outright. To gain access to `close()` we have to import it as well.
 
     from bank_account import open, close
     
     open()
     close()
+
+This approach is extremely useful with longer namespace names.
+
+    from bank_app.retail_banking.customer.bank_account import open
+    
+    open()
+
+Or alternatively,
+
+    from bank_app.retail_banking.customer import bank_account
+    
+    bank_account.open()
 
 ### NEVER import everything, this is very bad!
 
