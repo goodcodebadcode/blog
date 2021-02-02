@@ -102,23 +102,19 @@ Let’s take a look at a simple todo project:
     │   ├── auth.py
     │   ├── helpers.py
     │   └── main.py
-    │
     ├── data/
     │   ├── __init__.py
     │   ├── tasks.py
     │   └── users.py
-    │
     ├── tests/
     │   ├── todo/
     │   │   ├── api_tests.py
     │   │   ├── auth_tests.py
     │   │   ├── helpers_tests.py
     │   │   └── main_tests.py
-    │   │
     │   └── data/
     │       ├── tasks_tests.py
     │       └── users_tests.py
-    │
     ├── .editorconfig
     ├── .gitattributes
     ├── .gitignore
