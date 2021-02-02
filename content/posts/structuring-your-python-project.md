@@ -146,7 +146,7 @@ There are a number of ways of importing, but there are few written and unwritten
 
 For practical purposes, let us assume we have the following two files `main.py` and `bank_account.py` located in the same directory.
 
-    modules-demo/
+    bank_app/
     ├── bank_account.py
     └── main.py
 
@@ -170,13 +170,18 @@ We refer to `bank_account` as the **namespace** of `open()` and `close()`.
 
 > **Warning**: Do not confuse **namespace** with **implicit namespace package**. They're two different things.
 
-### Importing a single function
-
 At a certain point, however, namespaces can become a pain, especially with nested packages. `bank_app.retail_banking.customer.bank_account.open()` is just ugly. Thankfully, we do have a way around having to use the namespace _every time_ we call the function.
 
     from bank_account import open
     
     open()
+
+It is important to note here, however, that neither `close()` nor `bank_account.close()` will not work in this last scenario. This is because we did not import the function outright. To gain access to `close()` we have to import it as well.
+
+    from bank_account import open, close
+    
+    open()
+    close()
 
 ### NEVER import everything, this is very bad!
 
