@@ -125,6 +125,7 @@ Let’s take a look at a simple todo project:
     ├── pylintrc
     ├── README.rst
     ├── requirements.txt
+    ├── run.py
     └── setup.py   
 
 ## How importing works
@@ -165,21 +166,27 @@ And now we want to call the `open()` function from within `main.py`. The simples
     
     bank_account.open()
 
-We refer to `bank_account` as the **namespace** of `open()` and `close()`. 
+We refer to `bank_account` as the **namespace** of `open()` and `close()`.
 
 > **Warning**: Do not confuse **namespace** with **implicit namespace package**. They're two different things.
 
+### Importing a single function
+
+At a certain point, however, namespaces can become a pain, especially with nested packages. `bank_app.retail_banking.customer.bank_account.open()` is just ugly. Thankfully, we do have a way around having to use the namespace _every time_ we call the function.
+
+    from bank_account import open
+    
+    open()
+
 ### NEVER import everything, this is very bad!
 
-We do have the ability to import everything from a module using the asterisk (__*__), however, this frowned upon. And here is why. 
+We do have the ability to import everything from a module using the asterisk (__*__), however, this frowned upon. And here is why.
 
 ### Importing a module
 
 ### Importing modules by alias
 
 To alias an import so that we do not have reference the full name throughout, we can simply:
-
-### Importing a single function
 
 ### **How does Python know where my modules are?**
 
