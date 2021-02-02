@@ -131,6 +131,12 @@ Let’s take a look at a simple todo project:
 
 When you import a module, we are actually running it. This means that any recursive `import` statements within the module are also being run.
 
+```python
+import re
+```
+
+
+
 ### Importing modules by alias
 
 To alias an import so that we do not have reference the full name throughout, we can simply:
