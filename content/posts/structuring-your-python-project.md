@@ -75,7 +75,7 @@ Some of these files will be new to you, so let’s take a quick look at what eac
 * **CONTRIBUTING.rst**: Create guidelines to communicate how people should contribute to your project.
 * **LICENSE**: Describes the license for a project. It’s always a good idea to have one if you’re distributing code. The filename is in all caps by convention.
 * **pylintrc**: Allows you to tell Pylint to ignore certain checks.
-* **makefile**:
+* **makefile**: Keeps your project up to date by rebuilding the out of date parts of your project.
 * **README.rst**: This is a [Markdown](https://en.wikipedia.org/wiki/Markdown) (or [reStructuredText](https://en.wikipedia.org/wiki/ReStructuredText)) file for documenting the purpose and usage of your application.
 * **requirements.txt**: Defines outside Python dependencies and their versions for your application.
 * **setup.py**: Can also be used to define dependencies.
@@ -93,9 +93,9 @@ In short, **modules are named by filenames**, and **packages are named by their 
 Let’s take a look at a simple todo project:
 
     todo/
-    │
     ├── docs/
     ├── lib/
+    ├── scripts/
     ├── todo/
     │   ├── __init__.py
     │   ├── api.http
@@ -128,6 +128,8 @@ Let’s take a look at a simple todo project:
     └── setup.py   
 
 ## How importing works
+
+When you import a module, we are actually running it. This means that any recursive `import` statements within the module are also being run.
 
 ### Importing modules by alias
 
