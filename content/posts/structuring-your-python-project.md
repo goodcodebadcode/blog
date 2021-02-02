@@ -195,17 +195,26 @@ Or alternatively,
     
     bank_account.open()
 
-### NEVER import everything, this is very bad!
+The great thing about the `import` system is that it is flexible like that.
 
-We do have the ability to import everything from a module using the asterisk (__*__), however, this frowned upon. And here is why.
+I should mention, this type of package nesting is not favoured by Python developers. When given the choice, flat is better than nested.
 
-### Importing a module
+### Explicit is better than implicit
 
-### Importing modules by alias
+We do have the ability to import everything from a module, however, this highly frowned upon. And here is why.
 
-To alias an import so that we do not have reference the full name throughout, we can simply:
+    from bank_account import *
+    from gzip import *
+    
+    open()
 
-### **How does Python know where my modules are?**
+As `gzip` has an `open()` function, and since it was the last module imported, it is that function that gets called. Our `bank_account.open()` has been **shadowed**, which means that we cannot call it at all.
+
+Hence, explicit is better than implicit. You should never have to guess where a function or variable is coming from.
+
+### Taking a step back ..
+
+### How does Python know where my modules are?
 
 You have probably noticed that we did not provide a file path for the imported modules, yet somehow Python knew where to find these.
 
