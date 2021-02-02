@@ -98,20 +98,23 @@ Let’s take a look at a simple project:
     ├── lib/
     ├── todo/
     │   ├── __init__.py
-    │   ├── forms.py
+    │   ├── api.http
+    │   ├── auth.py
     │   ├── helpers.py
-    │   ├── models.py
-    │   ├── templates/
-    │   │   ├── base.html
-    │   │   └── index.html
-    │   └── views.py
+    │   ├── main.py
+    │
+    ├── data/
+    │   ├── __init__.py
+    │   ├── tasks.py
+    │   ├── users.py
     │
     ├── tests/
     │   ├── __init__.py
-    │   ├── forms_tests.py
+    │   ├── api_tests.py
+    │   ├── auth_tests.py
     │   ├── helpers_tests.py
-    │   ├── models_tests.py
-    │   └── views_tests.py
+    │   ├── main_tests.py
+    │   └── data_tests.py
     │
     ├── .editorconfig
     ├── .gitattributes
