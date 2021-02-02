@@ -2,7 +2,7 @@
 aliases = []
 comments = true
 date = 2021-02-08T10:04:00Z
-description = "Standardise your projects and code using imports, modules, and packages."
+description = "Standardise your projects with modules, and packages."
 disableShare = false
 draft = true
 hideMeta = false
@@ -90,7 +90,7 @@ This means that if you have two files in the same folder you can load the defini
 
 In short, **modules are named by filenames**, and **packages are named by their directory name**.
 
-Let’s take a look at a simple project:
+Let’s take a look at a simple todo project:
 
     todo/
     │
