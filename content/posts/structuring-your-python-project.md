@@ -301,7 +301,7 @@ It’s also a good idea to order your imports alphabetically within each import 
     from allocation.domain import events
     from data_classes import asdict
 
-## if name == '**main**'
+## if name == 'main':
 
 You see this a lot in Python and it confuses most folks. Whilst Python does not have much **boilerplate** - code that must be used pretty universally with little to no modification - but this is one of those rare bits.
 
@@ -323,7 +323,13 @@ So, using our earlier import example.
 
 The interpreter will search for your `bank_account.py` file, and prior to executing that module, it will assign the name `bank_account` from the import statement to the `__name__` variable.
 
+    # It's as if the interpreter inserts this at the top
+    # of your module when it's imported from another module.
     __name__ = "bank_account"
+
+After the special variables are set up, the interpreter executes all the code in the module, one statement at a time.
+
+Thus, `if __name__ == "__main__":` is actually checking if the module is being executed as the _main_ module. If it is, it runs the code under the conditional.
 
 ## In the end
 
