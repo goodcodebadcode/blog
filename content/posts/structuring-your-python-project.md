@@ -311,12 +311,13 @@ When the Python interpreter reads a file, it first defines a few special variabl
 
 If you are running your module as the main program, the interpreter will assign the hard-coded string `"__main__"` to the `__name__` variable.
 
+`
 # It's as if the interpreter inserts this at the top
-
 # of your module when run as the main program.
+__name__ = "__main__" 
+`
 
-**name** = "**main**"
-\`
+
 
 ## In the end
 
