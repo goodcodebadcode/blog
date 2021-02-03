@@ -329,7 +329,17 @@ The interpreter will search for your `bank_account.py` file, and prior to execut
 
 After the special variables are set up, the interpreter executes all the code in the module, one statement at a time.
 
-Thus, `if __name__ == "__main__":` is actually checking if the module is being executed as the _main_ module. If it is, it runs the code under the conditional.
+So, `if __name__ == "__main__":` is actually checking if the module is being executed as the _main_ module. If it is, it runs the code under the conditional.
+
+### But why?
+
+You might naturally wonder why anybody would want to do this. Well, sometimes you want to write a `.py` file that can be both used by other programs and/or modules as a module, and can also be run as the main program itself. Examples:
+
+* Your module is a library, but you want to have a script mode where it runs some unit tests or a demo.
+* Your module is only used as a main program, but it has some unit tests, and the testing framework works by importing `.py` files like your script and running special test functions. You don't want it to try running the script just because it's importing the module.
+* Your module is mostly used as a main program, but it also provides a programmer-friendly API for advanced users.
+
+Beyond those examples, it's elegant that running a script in Python is just setting up a few magic variables and importing the script. "Running" the script is a side effect of importing the script's module.
 
 ## In the end
 
