@@ -317,9 +317,13 @@ If you are running your module as the main program, the interpreter will assign 
 
 On the other hand, suppose some other module is the main program and it imports your module. This means there's a statement like this in the main program, or in some other module the main program imports.
 
+So, using our earlier import example.
+
     import bank_account
 
-The interpreter will search for your `bank_account.py` file, and prior to executing that module, it will assign the name `bank_account` from the import statement to the `__name__` variable, i.e.
+The interpreter will search for your `bank_account.py` file, and prior to executing that module, it will assign the name `bank_account` from the import statement to the `__name__` variable.
+
+    __name__ = "bank_account"
 
 ## In the end
 
