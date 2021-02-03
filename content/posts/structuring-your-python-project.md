@@ -1,22 +1,22 @@
-+++
-aliases = []
-comments = true
-date = 2021-02-08T10:04:00Z
-description = "Standardise your projects with modules, and packages."
-disableShare = false
-draft = true
-hideMeta = false
-showToc = false
-tags = ["education", "architecture", "python"]
-title = "Structuring your Python project"
-tocOpen = false
-[cover]
-alt = ""
-caption = "Photo by Lance Anderson  on Unsplash Rock and Roll Hall of Fame"
-image = "/uploads/rock-and-roll-hall-of-fame.jpg"
-relative = false
+---
+aliases: "/structure-your-Python-projects"
+comments: true
+cover:
+  alt: Image for post cover
+  caption: Photo by Lance Anderson on Unsplash
+  image: "/posts/images/rock-and-roll-hall-of-fame.jpg"
+  relative: false
+date: 2021-01-16T20:46:03.000+00:00
+description: ''
+disableShare: false
+draft: true
+hideMeta: false
+showToc: false
+tags: [ "python" ]
+title: Structure your Python projects
+tocOpen: false
+---
 
-+++
 Just as code style, API design, and automation are essential for a healthy productive development cycle. Project structure is a crucial part of your application's architecture.
 
 > Martin Fowler describes architecture as: “The highest-breakdown of a system into its parts.”
@@ -29,24 +29,26 @@ In practical terms, architecture means code whose logic and dependencies are cle
 
 There are not a lot of complex rules here because Python projects can be simple.
 
-    /apidocs
-    /docs
-    /lib
-    /sample/__init__.py
-    /sample/main.py
-    /scripts
-    /tests
-    .editorconfig
-    .gitattributes
-    .gitignore
-    CHANGELOG.rst
-    CONTRIBUTING.rst
-    LICENSE
-    READNE.rst
-    pylintrc
-    makefile
-    requirements.txt
-    setup.py
+```
+/apidocs
+/docs
+/lib
+/sample/__init__.py
+/sample/main.py
+/scripts
+/tests
+.editorconfig
+.gitattributes
+.gitignore
+CHANGELOG.rst
+CONTRIBUTING.rst
+LICENSE
+READNE.rst
+pylintrc
+makefile
+requirements.txt
+setup.py
+```
 
 Structuring your Python projects can often be one of the most overlooked parts of onboarding new developers onto a team. If your repository is a massive dump of files or a nested mess of directories, any new developer or contributor will have difficulty getting to grips with your code, regardless of how beautiful your documentation might be.
 
@@ -92,54 +94,58 @@ In short, **modules are named by filenames**, and **packages are named by their 
 
 Let’s take a look at a simple todo project:
 
-    todo-app/
-    ├── docs/
-    ├── lib/
-    ├── scripts/
-    ├── todo/
-    │   ├── app.py
-    │   ├── common/
-    │   │   ├── checks.py
-    │   │   ├── constants.py
-    │   │   ├── helpers.py
-    │   │   ├── __init__.py
-    │   │   └── status_enums.py
-    │   ├── data/
-    │   │   ├── database.py
-    │   │   ├── __init__.py
-    │   │   ├── tasks.py
-    │   │   └── users.py
-    │   ├── todos/
-    │   │   ├── auth.py
-    │   │   ├── __init__.py
-    │   │   ├── data_loader.py
-    │   │   ├── todo_item.py
-    │   │   └── todo_list.py
-    │   ├── __init__.py
-    │   ├── __main__.py
-    │   └── tests/
-    │       ├── __init__.py
-    │       ├── mock_db.py
-    │       ├── mock_db_config.py
-    │       ├── test_auth.py
-    │       ├── test_checks.py
-    │       ├── test_data_loader.py
-    │       ├── test_helpers.py
-    │       ├── test_tasks.py
-    │       ├── test_todo_item.py
-    │       ├── test_todo_list.py
-    │       └── test_users.py
-    ├── .editorconfig
-    ├── .gitattributes
-    ├── .gitignore
-    ├── CHANGELOG.rst
-    ├── CONTRIBUTING.rst
-    ├── LICENSE
-    ├── makefile
-    ├── pylintrc
-    ├── README.rst
-    ├── requirements.txt
-    └── setup.py   
+{{< highlight no-highlight >}}
+
+todo-app/
+├── docs/
+├── lib/
+├── scripts/
+├── todo/
+│   ├── app.py
+│   ├── common/
+│   │   ├── checks.py
+│   │   ├── constants.py
+│   │   ├── helpers.py
+│   │   ├── __init__.py
+│   │   └── status_enums.py
+│   ├── data/
+│   │   ├── database.py
+│   │   ├── __init__.py
+│   │   ├── tasks.py
+│   │   └── users.py
+│   ├── todos/
+│   │   ├── auth.py
+│   │   ├── __init__.py
+│   │   ├── data_loader.py
+│   │   ├── todo_item.py
+│   │   └── todo_list.py
+│   ├── __init__.py
+│   ├── __main__.py
+│   └── tests/
+│       ├── __init__.py
+│       ├── mock_db.py
+│       ├── mock_db_config.py
+│       ├── test_auth.py
+│       ├── test_checks.py
+│       ├── test_data_loader.py
+│       ├── test_helpers.py
+│       ├── test_tasks.py
+│       ├── test_todo_item.py
+│       ├── test_todo_list.py
+│       └── test_users.py
+├── .editorconfig
+├── .gitattributes
+├── .gitignore
+├── CHANGELOG.rst
+├── CONTRIBUTING.rst
+├── LICENSE
+├── makefile
+├── pylintrc
+├── README.rst
+├── requirements.txt
+└── setup.py
+
+{{< /highlight >}}
 
 ## Importing modules
 
@@ -179,25 +185,34 @@ There are a number of ways of importing, but there are few written and unwritten
 
 For practical purposes, let us assume we have the following two files `main.py` and `bank_account.py` located in the same directory.
 
-    bank_app/
-    ├── bank_account.py
-    └── main.py
+{{< highlight no-highlight >}}
+
+bank_app/
+├── bank_account.py
+└── main.py
+
+{{< /highlight >}}
 
 The contents of `bank_account.py` are:
 
-    # bank_account.py
-    
-    def close():
-        print("We are sorry to see you go.")
-    
-    def open():
-        print("Thank you for opening an account.")
+{{< highlight python >}}
+# bank_account.py
+
+def close():
+    print("We are sorry to see you go.")
+
+def open():
+    print("Thank you for opening an account.")
+
+{{< /highlight >}}
 
 And now we want to call the `open()` function from within `main.py`. The simplest way to do this is to import the `bank_account` module:
 
-    import bank_account
-    
-    bank_account.open()
+```python
+import bank_account
+
+bank_account.open()
+```
 
 We refer to `bank_account` as the **namespace** of `open()` and `close()`.
 
@@ -205,28 +220,36 @@ We refer to `bank_account` as the **namespace** of `open()` and `close()`.
 
 At a certain point, however, namespaces can become a pain, especially with nested packages. `bank_app.retail_banking.customer.bank_account.open()` is just ugly. Thankfully, we do have a way around having to use the namespace _every time_ we call the function.
 
-    from bank_account import open
-    
-    open()
+```python
+from bank_account import open
+
+open()
+```
 
 It is important to note, that neither `close()` nor `bank_account.close()` will work in this last scenario. This is because we did not import the function outright. To gain access to `close()` we have to import it as well.
 
-    from bank_account import open, close
-    
-    open()
-    close()
+```python
+from bank_account import open, close
+
+open()
+close()
+```
 
 This approach is extremely useful with longer namespace names.
 
-    from bank_app.retail_banking.customer.bank_account import open
-    
-    open()
+```python
+from bank_app.retail_banking.customer.bank_account import open
+
+open()
+```
 
 Or alternatively,
 
-    from bank_app.retail_banking.customer import bank_account
-    
-    bank_account.open()
+```python
+from bank_app.retail_banking.customer import bank_account
+
+bank_account.open()
+```
 
 The great thing about the `import` system is that it is extremely flexible.
 
@@ -236,10 +259,12 @@ I should mention, this type of package nesting is not favoured by Python develop
 
 We do have the ability to import everything from a module, however, this highly frowned upon. And here is why.
 
-    from bank_account import *
-    from gzip import *
-    
-    open()
+```python
+from bank_account import *
+from gzip import *
+
+open()
+```
 
 As `gzip` has an `open()` function, and since it was the last module imported, it is that function that gets called. Our `bank_account.open()` has been **shadowed**, which means that we cannot call it at all.
 
@@ -249,13 +274,17 @@ Hence, explicit is better than implicit. You should never have to guess where a 
 
 If I want to use the `TodoStatus` class defined in `todo/common/status_enums.py` in the example project structure above, how would  you import this? Well, since I organised my modules as subpackages, I would use an **absolute import**.
 
-    from todo.common.status_enums import TodoStatus
+```python
+from todo.common.status_enums import TodoStatus
+```
 
 An **absolute import** starts at the top-level package and then walks down into the `common` package, where it finds `status_enums.py`.
 
 What happens if we try to import `common` without including the top-level package name? Well it won't work. Simply put, in our example, the `data` package has no knowledge of its siblings, but it does know about its parent. So instead we can use a **relative import**.
 
-    from ..common.status_enums import TodoStatus
+```python
+from ..common.status_enums import TodoStatus
+```
 
 The `..` means "this package's direct parent package", which in this case, is `todo`. So, the import steps back one level, walks down into `common`, and finds `status_enums.py`.
 
@@ -269,11 +298,13 @@ You can make up your own mind, however. The only important part is that the resu
 
 [PEP 8](http://pep8.org/#imports), the official style guide for Python, has a few pointers when it comes to writing import statements. Let us consider the below example.
 
-    import json, logging
-    from dataclasses import asdict
-    import redis
-    from allocation import config, views
-    from allocation.domain import events
+```python
+import json, logging
+from dataclasses import asdict
+import redis
+from allocation import config, views
+from allocation.domain import events
+```
 
 1. Imports should always be written at the top of the file, after any module comments and docstrings.
 2. Imports should usually be on separate lines.
@@ -286,20 +317,22 @@ You can make up your own mind, however. The only important part is that the resu
 
 It’s also a good idea to order your imports alphabetically within each import group. This makes finding particular imports much easier, especially when there are many imports in a file.
 
-    """This is the summary line
-    
-    This is the further elaboration of the docstring. Within this section,
-    you can elaborate further on details as appropriate for the situation.
-    """
-    
-    import json
-    import logging
-    
-    import redis
-    
-    from allocation import config, views
-    from allocation.domain import events
-    from data_classes import asdict
+```python
+"""This is the summary line
+
+This is the further elaboration of the docstring. Within this section,
+you can elaborate further on details as appropriate for the situation.
+"""
+
+import json
+import logging
+
+import redis
+
+from allocation import config, views
+from allocation.domain import events
+from data_classes import asdict
+```
 
 ## if name == "__main__":
 
@@ -311,21 +344,27 @@ When the Python interpreter runs a file, it first defines a few special variable
 
 If you are running your module as the main program, the interpreter will assign the hard-coded string `"__main__"` to the `__name__` variable.
 
-    # It's as if the interpreter inserts this at the top
-    # of your module when run as the main program.
-    __name__ = "__main__" 
+```python
+# It's as if the interpreter inserts this at the top
+# of your module when run as the main program.
+__name__ = "__main__" 
+```
 
 On the other hand, suppose some other module is the main program and it imports your module. This means there's a statement like this in the main program, or in some other module the main program imports.
 
 So, using our earlier import example.
 
-    import bank_account
+```python
+import bank_account
+```
 
 The interpreter will search for your `bank_account.py` file, and prior to executing that module, it will assign the name `bank_account` from the import statement to the `__name__` variable.
 
-    # It's as if the interpreter inserts this at the top
-    # of your module when it's imported from another module.
-    __name__ = "bank_account"
+```python
+# It's as if the interpreter inserts this at the top
+# of your module when it's imported from another module.
+__name__ = "bank_account"
+```
 
 After the special variables are set up, the interpreter executes all the code in the module, one statement at a time.
 

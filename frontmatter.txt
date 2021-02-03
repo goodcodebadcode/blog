@@ -1,0 +1,18 @@
+---
+aliases: "/structure-your-Python-projects"
+comments: true
+cover:
+  alt: Image for post cover
+  caption: Photo by Lance Anderson on Unsplash
+  image: "/posts/images/rock-and-roll-hall-of-fame.jpg"
+  relative: false
+date: 2021-01-16T20:46:03.000+00:00
+description: ''
+disableShare: false
+draft: true
+hideMeta: false
+showToc: false
+tags: [ "python" ]
+title: Structure your Python projects
+tocOpen: false
+---

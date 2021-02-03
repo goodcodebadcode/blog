@@ -16,8 +16,8 @@ tags: []
 showToc: false
 tocOpen: false
 draft: true
-
 ---
+
 Well, it's up. After messing around with Hugo and Netlify environment variables for an hour, my blog is up.
 
 ## Why write a blog?
