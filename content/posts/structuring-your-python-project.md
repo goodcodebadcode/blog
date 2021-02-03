@@ -50,7 +50,7 @@ There are not a lot of complex rules here because Python projects can be simple.
 
 Structuring your Python projects can often be one of the most overlooked parts of onboarding new developers onto a team. If your repository is a massive dump of files or a nested mess of directories, any new developer or contributor will have difficulty getting to grips with your code, regardless of how beautiful your documentation might be.
 
-In truth, I have been guilty of this too and have seen many developers and teams get this simple step wrong, often stumbling through a jumble of common mistakes until they arrive at something that at least works e.g. playing tricks with `sys.path` is an instant DQ in my book.
+In truth, I have been guilty of this too and have seen many developers and teams get this simple step wrong, often stumbling through a jumble of common mistakes until they arrive at something that at least works.
 
 * **/apidocs**: Epydoc-generated API docs.
 * **/docs**: All your documentation goes here.
