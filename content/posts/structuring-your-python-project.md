@@ -141,19 +141,45 @@ Let’s take a look at a simple todo project:
     ├── requirements.txt
     └── setup.py   
 
-## How importing works
+## Importing modules
 
-When you import a module, we are actually running it. This means that any recursive `import` statements within the module are also run.
+What happens when you have code in one module that needs to access code in another module or package? You import it!
+
+When you import a module, we are actually running it. This means that any recursive or inner `import` statements within the module are also run.
 
 ```python
 import re
 ```
 
-So when we import `re.py`, we are in fact importing `re.py` and its own several import statements, which are also run. That doesn't mean those imports are available to the file we imported `re` from, but it does mean those files have to exist. If, for some unlikely reason, `enum.py` was deleted on your environment, and you ran `import re`, it would fail with an error.
+So when we import `re.py`, we are in fact importing `re.py` and its own several import statements. That doesn't mean those imports are available to the module we imported `re` from, but it does mean those files have to exist. If, for some unlikely reason, `enum.py` was deleted on your environment, and you ran `import re`, it would fail with an error.
 
 I have often heard newer Python developers ask why the inner module, `enum.py` in our example is being imported, since they didn't ask for it directly in their code. The answer is simple: we imported `re`, and that imports `enum`.
 
-## Best practices for imports
+### How does this actually work?
+
+Let’s assume you import the module `abc` like so:
+
+    import abc
+
+You have probably noticed that we did not provide a file path for the import, yet somehow Python knew where to find these. 
+
+The first thing Python will do is look up the name `abc` in [`sys.modules`](https://docs.python.org/3/library/sys.html#sys.modules). This is a cache of all modules that have been previously imported.
+
+If the name isn’t found in the module cache, Python will proceed to search through a list of built-in modules. These are modules that come pre-installed with Python and can be found in the [Python Standard Library](https://docs.python.org/3/library/). If the name still isn’t found in the built-in modules, Python then searches for it in a list of directories defined by [`sys.path`](https://docs.python.org/3/library/sys.html#sys.path). This list usually includes the current directory, which is searched first.
+
+When Python finds the module, it binds it to a name in the local scope. This means that `abc` is now defined and can be used in the current module without throwing a `NameError`.
+
+If the name is never found, you will get a `ModuleNotFoundError`. You can find out more about imports in the [Python documentation](https://docs.python.org/3/reference/import.html).
+
+### The standard library
+
+Python’s standard library is very extensive. The library contains built-in modules, written in C, that provide access to system functionality such as file I/O that would otherwise be inaccessible to Python programmers, as well as modules written in Python that provide standardised solutions for many problems that occur in everyday programming.
+
+Some of these modules are explicitly designed to encourage and enhance the portability of Python programs by abstracting away platform-specifics into platform-neutral APIs.
+
+In addition to the standard library, there is a growing collection of several thousand components, available from the [Python Package Index](https://pypi.org/).
+
+## Syntax of Import Statements
 
 There are a number of ways of importing, but there are few written and unwritten rules that you should follow.
 
@@ -208,7 +234,7 @@ Or alternatively,
     
     bank_account.open()
 
-The great thing about the `import` system is that it is flexible like that.
+The great thing about the `import` system is that it is extremely flexible.
 
 I should mention, this type of package nesting is not favoured by Python developers. When given the choice, flat is better than nested.
 
@@ -227,52 +253,52 @@ Hence, explicit is better than implicit. You should never have to guess where a 
 
 ### Taking a step back ..
 
-### How does Python know where my modules are?
+If I want to use the `TodoStatus` class defined in `todo/common/status_enums.py`, how would import this? Well, since I organised my modules as subpackages, I would use an **absolute import**. 
 
-You have probably noticed that we did not provide a file path for the imported modules, yet somehow Python knew where to find these.
+    from todo.common.status_enums import TodoStatus
 
-When we import a module, Python checks multiple locations and the locations that it checks are in a list found in sys.path:
+An **absolute import** starts at the top-level package and then walks down into the `common` package, where it finds `status_enums.py`.
 
-We can see the output of locations that Python checks that are specific to my machine. These items are then checked in order. Notice here we can see the directory containing the script that we are currently using - which is why it can import our utilities module. This is why we can always import modules from the same directory.
+What happens if we try to import `common` without including the top-level package name? Well it won't work. Simply put, in our example, the `data` package has no knowledge of its siblings, but it does know about its parent. So instead we can use a **relative import**.
 
-Next it lists directories located in the python env variable. And then, after that it lists the directory for packages in the standard library, which is why we can import the sys module, then lastly it lists the directory for 3rd party packages.
+    from ..common.status_enums import TodoStatus
 
-Now what happens when we want to import modules from another location that is not listed in sys.path
+The `..` means "this package's direct parent package", which in this case, is `todo`. So, the import steps back one level, walks down into `common`, and finds `status_enums.py`.
 
-Move collection_utils to another location on your machine and we can then try run our code. You can see that this fails.
+There is a lot of debate about whether to use absolute or relative imports. Personally, I prefer to use absolute imports whenever possible, because it makes the code a lot more readable. You can make up your own mind, however. The only important part is that the result is obvious - there should be no mystery where anything comes from.
 
-We could also append the new location to sys.path by _sys.path.append(‘/some/path’)_ and you can now see that this works. However, this is not a recommended approach.
+## Dos and don'ts
 
-So instead, we could change the location of the Python env variables. Open our bash_profile and add the following:
+[PEP 8](http://pep8.org/#imports), the official style guide for Python, has a few pointers when it comes to writing import statements. Let us consider the below example.
 
-export PYTHONPATH=‘\~_/some/path’_
+    import json, logging
+    from dataclasses import asdict
+    import redis
+    from allocation import config, views
+    from allocation.domain import events
 
-Now restart the terminal.
+1. Imports should always be written at the top of the file, after any module comments and docstrings.
+2. Imports should usually be on separate lines.
+3. Imports should be divided according to what is being imported. There are generally three groups:
+   * Python’s built-in Standard Library modules
+   * Related third party imports. These are modules that you take a dependency on but are not directly part of your application.
+   * Local application imports. The modules that belong to your application.
+4. Each group of imports should be separated by a blank space.
+5. Absolute imports are recommended, as they are usually more readable and tend to be better behaved
 
-## Packages
+It’s also a good idea to order your imports alphabetically within each import group. This makes finding particular imports much easier, especially when there are many imports in a file.
 
-1. Create a directory and include a file: **init**.py: This can be blank but it tells the python interpreter that this directory should be treated as a package.
-2. Create a new file: say.py: Add a single function hello and pass a name argument, console print ‘Hello {name}’.
-3. Using the python interpreter run the package. You do not have to be within the package directory, instead we will run the package from outside of the directory. First import the package and then invoke the hello function.
-4. Repeat the process for creating sub-packages in the main package.
-5. Show example code by importing both packages, use an alias or import the specific function.
-
-This process is the same for when you import and use other packages in Python. However, they are not located in the same directory but rather located within your package directory for your python installation.
-
-### **if name** == '**main**'
-
-You will see this a lot in Python.
-
-To start let us print **name** (the result is **main**), so what exactly is going on here. Before Python runs any code, it sets a few special variables. One of these special variables is **name**. So when we run some code is file hello.py, Python behind the scenes is setting **name** to equal **main**.
-
-When we import additional modules we are running the code of the imported module, in effect. Python then sets **name** to the name of the file for the import.
-
-So why put your code into a separate main method. It allows the bye.py to call hello.say directly from within the bye.py file.
-
-## The standard library
-
-Python’s standard library is very extensive, offering a wide range of facilities as indicated by the long table of contents listed below. The library contains built-in modules (written in C) that provide access to system functionality such as file I/O that would otherwise be inaccessible to Python programmers, as well as modules written in Python that provide standardised solutions for many problems that occur in everyday programming.
-
-Some of these modules are explicitly designed to encourage and enhance the portability of Python programs by abstracting away platform-specifics into platform-neutral APIs.
-
-In addition to the standard library, there is a growing collection of several thousand components (from individual programs and modules to packages and entire application development frameworks), available from the [Python Package Index](https://pypi.org/).
+    """This is the summary line
+    
+    This is the further elaboration of the docstring. Within this section,
+    you can elaborate further on details as appropriate for the situation.
+    """
+    
+    import json
+    import logging
+    
+    import redis
+    
+    from allocation import config, views
+    from allocation.domain import events
+    from data_classes import asdict
