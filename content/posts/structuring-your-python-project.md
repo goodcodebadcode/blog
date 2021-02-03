@@ -157,27 +157,21 @@ I have often heard newer Python developers ask why the inner module, `enum.py` i
 
 ### How does this actually work?
 
-Let’s assume you import the module `abc` like so:
-
-    import abc
-
 You have probably noticed that we did not provide a file path for the import, yet somehow Python knew where to find these. 
 
-The first thing Python will do is look up the name `abc` in [`sys.modules`](https://docs.python.org/3/library/sys.html#sys.modules). This is a cache of all modules that have been previously imported.
+The first thing Python will do is look up the name of the module in [`sys.modules`](https://docs.python.org/3/library/sys.html#sys.modules). This is a cache of all modules that have been previously imported.
 
-If the name isn’t found in the module cache, Python will proceed to search through a list of built-in modules. These are modules that come pre-installed with Python and can be found in the [Python Standard Library](https://docs.python.org/3/library/). If the name still isn’t found in the built-in modules, Python then searches for it in a list of directories defined by [`sys.path`](https://docs.python.org/3/library/sys.html#sys.path). This list usually includes the current directory, which is searched first.
+If the name is not found in the module cache, Python will proceed to search through a list of built-in modules. These are modules that come pre-installed with Python and can be found in the [Python Standard Library](https://docs.python.org/3/library/). If the name still isn’t found in the built-in modules, Python then searches for it in a list of directories defined by [`sys.path`](https://docs.python.org/3/library/sys.html#sys.path). This list usually includes the current directory, which is searched first.
 
-When Python finds the module, it binds it to a name in the local scope. This means that `abc` is now defined and can be used in the current module without throwing a `NameError`.
+When Python finds the module, it binds it to a name in the local scope. This means that import is now defined and can be used in the current module without throwing a `NameError`.
 
 If the name is never found, you will get a `ModuleNotFoundError`. You can find out more about imports in the [Python documentation](https://docs.python.org/3/reference/import.html).
 
 ### The standard library
 
-Python’s standard library is very extensive. The library contains built-in modules, written in C, that provide access to system functionality such as file I/O that would otherwise be inaccessible to Python programmers, as well as modules written in Python that provide standardised solutions for many problems that occur in everyday programming.
+Python’s standard library is very extensive. The library contains built-in modules, written in C, that provide access to system functionality such as file I/O that would otherwise be inaccessible to Python programmers. It also includes other modules written in Python that provide standardised solutions for many problems that occur in everyday programming.
 
 Some of these modules are explicitly designed to encourage and enhance the portability of Python programs by abstracting away platform-specifics into platform-neutral APIs.
-
-In addition to the standard library, there is a growing collection of several thousand components, available from the [Python Package Index](https://pypi.org/).
 
 ## Syntax of Import Statements
 
@@ -253,7 +247,7 @@ Hence, explicit is better than implicit. You should never have to guess where a 
 
 ### Taking a step back ..
 
-If I want to use the `TodoStatus` class defined in `todo/common/status_enums.py`, how would import this? Well, since I organised my modules as subpackages, I would use an **absolute import**. 
+If I want to use the `TodoStatus` class defined in `todo/common/status_enums.py` in the example project structure above, how would  you import this? Well, since I organised my modules as subpackages, I would use an **absolute import**. 
 
     from todo.common.status_enums import TodoStatus
 
@@ -265,9 +259,13 @@ What happens if we try to import `common` without including the top-level packag
 
 The `..` means "this package's direct parent package", which in this case, is `todo`. So, the import steps back one level, walks down into `common`, and finds `status_enums.py`.
 
-There is a lot of debate about whether to use absolute or relative imports. Personally, I prefer to use absolute imports whenever possible, because it makes the code a lot more readable. You can make up your own mind, however. The only important part is that the result is obvious - there should be no mystery where anything comes from.
+There is a lot of debate about whether to use absolute or relative imports. Personally, I prefer to use absolute imports whenever possible, because it makes the code a lot more readable. 
 
-## Dos and don'ts
+One clear advantage of relative imports is that they are quite succinct. Depending on the current location, they can turn the extremely long import statements to something much simpler. Unfortunately, relative imports can be messy, particularly for shared projects where directory structure is likely to change.
+
+You can make up your own mind, however. The only important part is that the result is obvious - there should be no mystery where anything comes from.
+
+## Import style
 
 [PEP 8](http://pep8.org/#imports), the official style guide for Python, has a few pointers when it comes to writing import statements. Let us consider the below example.
 
@@ -302,3 +300,9 @@ It’s also a good idea to order your imports alphabetically within each import 
     from allocation import config, views
     from allocation.domain import events
     from data_classes import asdict
+
+## __main__.py
+
+## In the end
+
+Thanks for reading!
