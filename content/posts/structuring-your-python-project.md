@@ -139,7 +139,6 @@ Let’s take a look at a simple todo project:
     ├── pylintrc
     ├── README.rst
     ├── requirements.txt
-    ├── run.py
     └── setup.py   
 
 ## How importing works
