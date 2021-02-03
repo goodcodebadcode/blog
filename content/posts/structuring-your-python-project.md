@@ -157,7 +157,7 @@ I have often heard newer Python developers ask why the inner module, `enum.py` i
 
 ### How does this actually work?
 
-You have probably noticed that we did not provide a file path for the import, yet somehow Python knew where to find these. 
+You have probably noticed that we did not provide a file path for the import, yet somehow Python knew where to find these.
 
 The first thing Python will do is look up the name of the module in [`sys.modules`](https://docs.python.org/3/library/sys.html#sys.modules). This is a cache of all modules that have been previously imported.
 
@@ -247,7 +247,7 @@ Hence, explicit is better than implicit. You should never have to guess where a 
 
 ### Taking a step back ..
 
-If I want to use the `TodoStatus` class defined in `todo/common/status_enums.py` in the example project structure above, how would  you import this? Well, since I organised my modules as subpackages, I would use an **absolute import**. 
+If I want to use the `TodoStatus` class defined in `todo/common/status_enums.py` in the example project structure above, how would  you import this? Well, since I organised my modules as subpackages, I would use an **absolute import**.
 
     from todo.common.status_enums import TodoStatus
 
@@ -259,7 +259,7 @@ What happens if we try to import `common` without including the top-level packag
 
 The `..` means "this package's direct parent package", which in this case, is `todo`. So, the import steps back one level, walks down into `common`, and finds `status_enums.py`.
 
-There is a lot of debate about whether to use absolute or relative imports. Personally, I prefer to use absolute imports whenever possible, because it makes the code a lot more readable. 
+There is a lot of debate about whether to use absolute or relative imports. Personally, I prefer to use absolute imports whenever possible, because it makes the code a lot more readable.
 
 One clear advantage of relative imports is that they are quite succinct. Depending on the current location, they can turn the extremely long import statements to something much simpler. Unfortunately, relative imports can be messy, particularly for shared projects where directory structure is likely to change.
 
@@ -301,7 +301,22 @@ It’s also a good idea to order your imports alphabetically within each import 
     from allocation.domain import events
     from data_classes import asdict
 
-## __main__.py
+## if name == '__main__'
+
+You see this a lot in Python and it confuses most folks. Whilst Python does not have much **boilerplate** - code that must be used pretty universally with little to no modification - but this is one of those rare bits.
+
+### Special variables
+
+When the Python interpreter reads a file, it first defines a few special variables. In this case, we care about the `__name__` variable.
+
+If you are running your module as the main program, the interpreter will assign the hard-coded string `"__main__"` to the `__name__` variable.
+
+# It's as if the interpreter inserts this at the top
+
+# of your module when run as the main program.
+
+**name** = "**main**"
+\`
 
 ## In the end
 
