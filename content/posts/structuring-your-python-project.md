@@ -99,17 +99,17 @@ Let’s take a look at a simple todo project:
     ├── todo/
     │   ├── app.py
     │   ├── common/
-    │   │   ├── api_constants.py
     │   │   ├── checks.py
+    │   │   ├── constants.py
     │   │   ├── helpers.py
     │   │   ├── __init__.py
     │   │   └── status_enums.py
     │   ├── data/
+    │   │   ├── database.py
     │   │   ├── __init__.py
     │   │   ├── tasks.py
     │   │   └── users.py
     │   ├── todos/
-    │   │   ├── api.http
     │   │   ├── auth.py
     │   │   ├── __init__.py
     │   │   ├── data_loader.py
@@ -119,15 +119,16 @@ Let’s take a look at a simple todo project:
     │   ├── __main__.py
     │   └── tests/
     │       ├── __init__.py
-    │       ├── test_api.py
+    │       ├── mock_db.py
+    │       ├── mock_db_config.py
     │       ├── test_auth.py
     │       ├── test_checks.py
     │       ├── test_data_loader.py
     │       ├── test_helpers.py
+    │       ├── test_tasks.py
     │       ├── test_todo_item.py
     │       ├── test_todo_list.py
-    │       ├── mock_db.py
-    │       └── mock_db_config.py
+    │       └── test_users.py
     ├── .editorconfig
     ├── .gitattributes
     ├── .gitignore
