@@ -92,29 +92,42 @@ In short, **modules are named by filenames**, and **packages are named by their 
 
 Let’s take a look at a simple todo project:
 
-    todo/
+    todo-app/
     ├── docs/
     ├── lib/
     ├── scripts/
     ├── todo/
+    │   ├── app.py
+    │   ├── common/
+    │   │   ├── api_constants.py
+    │   │   ├── checks.py
+    │   │   ├── helpers.py
+    │   │   ├── __init__.py
+    │   │   └── status_enums.py
+    │   ├── data/
+    │   │   ├── __init__.py
+    │   │   ├── tasks.py
+    │   │   └── users.py
+    │   ├── todos/
+    │   │   ├── api.http
+    │   │   ├── auth.py
+    │   │   ├── __init__.py
+    │   │   ├── data_loader.py
+    │   │   ├── todo_item.py
+    │   │   └── todo_list.py
     │   ├── __init__.py
-    │   ├── api.http
-    │   ├── auth.py
-    │   ├── helpers.py
-    │   └── main.py
-    ├── data/
-    │   ├── __init__.py
-    │   ├── tasks.py
-    │   └── users.py
-    ├── tests/
-    │   ├── todo/
-    │   │   ├── api_tests.py
-    │   │   ├── auth_tests.py
-    │   │   ├── helpers_tests.py
-    │   │   └── main_tests.py
-    │   └── data/
-    │       ├── tasks_tests.py
-    │       └── users_tests.py
+    │   ├── __main__.py
+    │   └── tests/
+    │       ├── __init__.py
+    │       ├── test_api.py
+    │       ├── test_auth.py
+    │       ├── test_checks.py
+    │       ├── test_data_loader.py
+    │       ├── test_helpers.py
+    │       ├── test_todo_item.py
+    │       ├── test_todo_list.py
+    │       ├── mock_db.py
+    │       └── mock_db_config.py
     ├── .editorconfig
     ├── .gitattributes
     ├── .gitignore
