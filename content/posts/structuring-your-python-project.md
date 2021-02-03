@@ -301,23 +301,25 @@ It’s also a good idea to order your imports alphabetically within each import 
     from allocation.domain import events
     from data_classes import asdict
 
-## if name == '__main__'
+## if name == '**main**'
 
 You see this a lot in Python and it confuses most folks. Whilst Python does not have much **boilerplate** - code that must be used pretty universally with little to no modification - but this is one of those rare bits.
 
 ### Special variables
 
-When the Python interpreter reads a file, it first defines a few special variables. In this case, we care about the `__name__` variable.
+When the Python interpreter runs a file, it first defines a few special variables. In this case, we care about the `__name__` variable.
 
 If you are running your module as the main program, the interpreter will assign the hard-coded string `"__main__"` to the `__name__` variable.
 
-`
-# It's as if the interpreter inserts this at the top
-# of your module when run as the main program.
-__name__ = "__main__" 
-`
+    # It's as if the interpreter inserts this at the top
+    # of your module when run as the main program.
+    __name__ = "__main__" 
 
+On the other hand, suppose some other module is the main program and it imports your module. This means there's a statement like this in the main program, or in some other module the main program imports.
 
+    import bank_account
+
+The interpreter will search for your `bank_account.py` file, and prior to executing that module, it will assign the name `bank_account` from the import statement to the `__name__` variable, i.e.
 
 ## In the end
 
