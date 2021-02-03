@@ -301,7 +301,7 @@ It’s also a good idea to order your imports alphabetically within each import 
     from allocation.domain import events
     from data_classes import asdict
 
-## if name == 'main':
+## if name == "__main__":
 
 You see this a lot in Python and it confuses most folks. Whilst Python does not have much **boilerplate** - code that must be used pretty universally with little to no modification - but this is one of those rare bits.
 
@@ -343,4 +343,20 @@ Beyond those examples, it's elegant that running a script in Python is just sett
 
 ## In the end
 
-Thanks for reading!
+Let's review.
+
+* Every project should use a VCS, such as Git. There are plenty of options to choose from.
+* Every Python code file (`.py`) is a **module**.
+* Organise your modules into **packages**. Each package must contain a special `__init__.py` file.
+* Your project should generally consist of one top-level package, usually containing sub-packages. That top-level package usually shares the name of your project, and exists as a directory in the root of your project's repository.
+* **NEVER EVER EVER** use `*` in an import statement. Before you entertain a possible exception, the Zen of Python points out "Special cases aren't special enough to break the rules."
+* Use absolute or relative imports to refer to other modules in your project.
+* Executable projects should have a `__main__.py` in the top-level package. Then, you can directly execute that package with `python -m myproject`.
+
+Of course, there are a lot more advanced concepts and tricks we can employ in structuring a Python project, but we won't be discussing that here. I highly recommend reading the docs:
+
+* [Python Reference: the import system](https://docs.python.org/3/reference/import.html)
+* [Python Tutorials: Modules](https://docs.python.org/3/tutorial/modules.html)
+* [PEP 8: Style Guide for Python](https://www.python.org/dev/peps/pep-0008/)
+* [PEP 20: The Zen of Python](https://www.python.org/dev/peps/pep-0020/)
+* [PEP 240: Implicit Namespace Packages](https://www.python.org/dev/peps/pep-0420/)
