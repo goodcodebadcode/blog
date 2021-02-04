@@ -1,26 +1,22 @@
 ---
-title: A complete beginners guide to Programming
-description: Part 1
-date: 2021-01-18T12:40:27.000+00:00
-aliases:
-- "/how-the-internet-works"
-tags:
-- beginners
-- webdev
-- javascript
-hideMeta: false
-disableShare: false
-showToc: true
-tocOpen: true
-cover:
-  image: "/posts/images/laptop_with_code.jpg"
-  alt: Image for post cover
-  caption: Photo by Sigmund on Unsplash
-  relative: false
+aliases: "/things-you-need-to-know-before-you-code"
 comments: true
+cover:
+  alt: "Image for post cover"
+  caption: "Photo by Paul Teysen on Unsplash"
+  image: "/posts/images/things-you-need-to-know-before-you-code.jpg"
+  relative: false
+date: 2021-01-25T14:07:45.000+00:00
+description: "A gentler introduction to coding"
+disableShare: false
 draft: true
-
+hideMeta: false
+showToc: false
+tags: [  "beginners" ]
+title: "Things you need to know before you code"
+tocOpen: false
 ---
+
 This blog post introduces you to the practicalities of web development. Let us start by looking at some computer basics and how the web works at a high-level.
 
 Understanding the web can be intimidating and in a lot of cases confusing. Let us try and break this down into manageable pieces by starting with the basics.

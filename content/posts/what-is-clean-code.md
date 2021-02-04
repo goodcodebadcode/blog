@@ -1,25 +1,20 @@
-+++
-aliases = []
-comments = true
-date = 2021-01-12T17:54:00Z
-description = ""
-disableShare = false
-draft = true
-hideMeta = false
-showToc = false
-tags = []
-title = "What is Clean Code?"
-tocOpen = false
-[cover]
-alt = ""
-caption = ""
-image = ""
-relative = false
-
-+++
-In a profession as vast and varied as software engineering, constant learning and reading is essential for building foundational knowledge.
-
-## Software Craft(wo)manship
+---
+aliases: "/what-is-clean-code"
+comments: true
+cover:
+  alt: "Image for post cover"
+  image: "/posts/images/what-is-clean-code.jpg"
+  relative: false
+date: 2021-01-21T13:24:18.000+00:00
+description: "In a profession as vast and varied as software engineering, constant learning and reading is essential for building foundational knowledge."
+disableShare: false
+draft: true
+hideMeta: false
+showToc: false
+tags: [  "beginners", "best-practices" ]
+title: "What is Clean Code?"
+tocOpen: false
+---
 
 As developers, we rarely have the time to perfect a single piece of code. The idea of perfect code is a fantasy, and everything we write has flaws. Yet, we should always endeavour to produce the best possible code given our constraints. These constrains come in the form of deadlines, business demands, and personal fatigue. So, whilst different business conditions may set the boundaries on what is “possible”, a developer always has some control over the quality of his or her work.
 
@@ -27,7 +22,7 @@ The bottom line is that code that “works” is not always “done”. If our p
 
 Martin summarises this as: High-quality input (thoughtful, maintainable, flexible code), results in high-quality output (long-term business payoffs).
 
-## What is Clean Code?
+## Software Craft(wo)manship
 
 Everyone has his or her own list of what makes for clean code, and each language has its own implementation — indeed, Martin’s book begins with a collection of definitions given by various software luminaries. Here is my list:
 

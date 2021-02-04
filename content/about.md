@@ -19,6 +19,10 @@ Written by David, technical architect and principal software engineer.
 
 I learnt my trade as a software developer in the mid 2000’s with Classic ASP, although I spent a large part of my time in the early days writing code in Visual Basic.
 
+As a technical architect, my main focus has been to understand how to design, build and deploy software systems, to maximise the value development teams can deliver.
+
+In doing this I've looked to understand the patterns of good software architecture, and also the processes that support good software design. I've become a big fan of lean and agile methodologies and the resulting focus on evolutionary software architecture.
+
 ## Good Code vs Bad Code
 
 This is an image from the [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) book [Clean Code](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) and is used to illustrate a common problem experienced by teams and companies alike.
