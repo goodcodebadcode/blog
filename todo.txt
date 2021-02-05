@@ -1,0 +1,5 @@
+
+LINKS
+
+https://towardsdatascience.com/ultimate-setup-for-your-next-python-project-179bda8a7c2c
+https://github.com/MartinHeinz/python-project-blueprint
