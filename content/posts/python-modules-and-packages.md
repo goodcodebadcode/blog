@@ -7,17 +7,17 @@ cover:
   image: "/posts/images/python-modules-and-packages.jpg"
   relative: false
 date: 2021-02-03T13:24:18.000+00:00
-description: "Thanks to the way imports and modules are handled in Python, it is relatively easy to structure a Python project."
+description: "Understanding the basics"
 disableShare: false
 draft: true
 hideMeta: false
-showToc: false
+showToc: true
 tags: [  "beginners", "python", "best-practices" ]
 title: "Python Modules and Packages"
-tocOpen: false
+tocOpen: true
 ---
 
-Thanks to the way imports and modules are handled in Python, it is relatively easy to structure a Python project. Easy, here, means that you do not have many constraints and that the module importing model is easy to grasp. Therefore, you are left with the pure architectural task of crafting the different parts of your project and their interactions.
+Thanks to the way imports and modules are handled in Python, it is relatively easy to [structure a Python project](https://www.goodcodebadcode.dev/posts/structure-your-Python-projects). What we mean here is that you do not have many constraints and that the module importing model is easy to grasp. Therefore, you are left with the pure architectural task of crafting the different parts of your project and their interactions.
 
 Easy structuring of a project means it is also easy to do it poorly. Some signs of a poorly structured project include:
 
@@ -25,7 +25,24 @@ Easy structuring of a project means it is also easy to do it poorly. Some signs 
 * Hidden coupling
 * Heavy usage of global state or context
 * Spaghetti code
-* Ravioli code where hundreds of similar little pieces of logic, often classes or objects, without proper structure. 
+* Ravioli code where hundreds of similar little pieces of logic, often classes or objects, without proper structure.
+
+## PEP 8
+
+PEP stands for **Python Enhancement Proposal**, and there are several of them. A PEP is a document that describes new features proposed for Python and documents aspects of Python, like design and style, for the community.
+
+[PEP 8](https://www.python.org/dev/peps/pep-0008/), sometimes spelled PEP8 or PEP-8, is a document that provides guidelines and best practices on how to write Python code. It was written in 2001 by Guido van Rossum, Barry Warsaw, and Nick Coghlan. The primary focus of PEP 8 is to improve the readability and consistency of Python code.
+
+Now, not all PEPs are actually adopted, of course - that's why they're called "Proposals" - but some are. You can browse the master PEP index on the official Python website. This index is formally referred to as [PEP 0](https://www.python.org/dev/peps/).
+
+### Naming Packages and Modules
+
+Right now, we're mainly concerned with the section entitled [Package and Module Names](https://www.python.org/dev/peps/pep-0008/#package-and-module-names).
+
+It says that, **module names should be short and all lowercase, with underscores** if that improves readability. Similarly, **package names should be all lowercase, without underscores** if at all avoidable. Or, to put that another way:
+
+* Good: `myproject/data/load_settings.py`
+* Bad: `myproject/Data/LoadSettings.py`
 
 ## Modules
 
@@ -35,60 +52,41 @@ This means that if you have two files in the same folder you can load the defini
 
 In short, **modules are named by filenames**, and **packages are named by their directory name**.
 
-Let’s take a look at a simple todo project:
+How does this translate in a real world example - let’s take a look at the Flask tutorial project [Flaskr](https://flask.palletsprojects.com/en/1.1.x/tutorial/):
 
-{{< highlight no-highlight >}}
-
-todo-app/
-├── docs/
-├── lib/
-├── scripts/
-├── todo/
-│   ├── app.py
-│   ├── common/
-│   │   ├── checks.py
-│   │   ├── constants.py
-│   │   ├── helpers.py
-│   │   ├── __init__.py
-│   │   └── status_enums.py
-│   ├── data/
-│   │   ├── database.py
-│   │   ├── __init__.py
-│   │   ├── tasks.py
-│   │   └── users.py
-│   ├── todos/
-│   │   ├── auth.py
-│   │   ├── __init__.py
-│   │   ├── data_loader.py
-│   │   ├── todo_item.py
-│   │   └── todo_list.py
-│   ├── __init__.py
-│   ├── __main__.py
-│   └── tests/
-│       ├── __init__.py
-│       ├── mock_db.py
-│       ├── mock_db_config.py
-│       ├── test_auth.py
-│       ├── test_checks.py
-│       ├── test_data_loader.py
-│       ├── test_helpers.py
-│       ├── test_tasks.py
-│       ├── test_todo_item.py
-│       ├── test_todo_list.py
-│       └── test_users.py
-├── .editorconfig
-├── .gitattributes
+```no-highlight
+flaskr-tutorial/
+├── flaskr/
+│   ├── ___init__.py
+│   ├── db.py
+│   ├── schema.sql
+│   ├── auth.py
+│   ├── blog.py
+│   ├── templates/
+│   │   ├── base.html
+│   │   ├── auth/
+│   │   │   ├── login.html
+│   │   │   └── register.html
+│   │   └── blog/
+│   │       ├── create.html
+│   │       ├── index.html
+│   │       └── update.html
+│   └── static/
+│       └── style.css
+├── tests/
+│   ├── conftest.py
+│   ├── data.sql
+│   ├── test_factory.py
+│   ├── test_db.py
+│   ├── test_auth.py
+│   └── test_blog.py
+├── venv/
 ├── .gitignore
-├── CHANGELOG.rst
-├── CONTRIBUTING.rst
-├── LICENSE
-├── makefile
-├── pylintrc
-├── README.rst
-├── requirements.txt
-└── setup.py
+├── setup.py
+└── MANIFEST.in
+```
 
-{{< /highlight >}}
+Here you can see that a Flask application, like most Python applications, is built around Python modules and packages.
 
 ## Importing modules
 
@@ -112,33 +110,33 @@ The first thing Python will do is look up the name of the module in [`sys.module
 
 If the name is not found in the module cache, Python will proceed to search through a list of built-in modules. These are modules that come pre-installed with Python and can be found in the [Python Standard Library](https://docs.python.org/3/library/). If the name still isn’t found in the built-in modules, Python then searches for it in a list of directories defined by [`sys.path`](https://docs.python.org/3/library/sys.html#sys.path). This list usually includes the current directory, which is searched first.
 
-When Python finds the module, it binds it to a name in the local scope. This means that import is now defined and can be used in the current module without throwing a `NameError`.
+When Python finds the module, it binds it to a name in the local scope. This means that the import is now defined and can be used in the current module without throwing a `NameError`.
 
-If the name is never found, you will get a `ModuleNotFoundError`. You can find out more about imports in the [Python documentation](https://docs.python.org/3/reference/import.html).
+If the name is never found, you will get a `ModuleNotFoundError`. 
+
+> You can find out more about imports in the [Python documentation](https://docs.python.org/3/reference/import.html).
 
 ### The standard library
 
-Python’s standard library is very extensive. The library contains built-in modules, written in C, that provide access to system functionality such as file I/O that would otherwise be inaccessible to Python programmers. It also includes other modules written in Python that provide standardised solutions for many problems that occur in everyday programming.
+[Python's Standard Library](https://docs.python.org/3/library/) is very extensive. The library contains built-in modules, written in C, that provide access to system functionality such as file I/O that would otherwise be inaccessible to Python programmers. 
 
-Some of these modules are explicitly designed to encourage and enhance the portability of Python programs by abstracting away platform-specifics into platform-neutral APIs.
+It also includes other modules written in Python that provide standardised solutions for many problems that occur in everyday programming.
 
 ## Syntax of Import Statements
 
 There are a number of ways of importing, but there are few written and unwritten rules that you should follow.
 
-For practical purposes, let us assume we have the following two files `main.py` and `bank_account.py` located in the same directory.
+For practical purposes, let us assume we have the following two files `customer.py` and `bank_account.py` located in the same directory.
 
-{{< highlight no-highlight >}}
-
-bank_app/
+```no-highlight
+banking-app/
 ├── bank_account.py
-└── main.py
-
-{{< /highlight >}}
+└── customer.py
+```
 
 The contents of `bank_account.py` are:
 
-{{< highlight python >}}
+```python
 # bank_account.py
 
 def close():
@@ -146,10 +144,9 @@ def close():
 
 def open():
     print("Thank you for opening an account.")
+```
 
-{{< /highlight >}}
-
-And now we want to call the `open()` function from within `main.py`. The simplest way to do this is to import the `bank_account` module:
+And now we want to call the `open()` function from within `customer.py`. The simplest way to do this is to import the `bank_account` module:
 
 ```python
 import bank_account
@@ -161,7 +158,7 @@ We refer to `bank_account` as the **namespace** of `open()` and `close()`.
 
 > **Warning**: Do not confuse **namespace** with **implicit namespace package**. They're two different things.
 
-At a certain point, however, namespaces can become a pain, especially with nested packages. `bank_app.retail_banking.customer.bank_account.open()` is just ugly. Thankfully, we do have a way around having to use the namespace _every time_ we call the function.
+At a certain point, however, namespaces can become a pain, especially with nested packages. `bank_app.retail_banking.customer.bank_account.open()` is just ugly. Thankfully, we do have a way around having to use the namespace every time we call the function.
 
 ```python
 from bank_account import open
@@ -196,7 +193,7 @@ bank_account.open()
 
 The great thing about the `import` system is that it is extremely flexible.
 
-I should mention, this type of package nesting is not favoured by Python developers. When given the choice, flat is better than nested.
+I should mention, this type of package nesting is not favoured by Python developers. When given the choice, **flat is better than nested**.
 
 ### Explicit is better than implicit
 
@@ -215,7 +212,7 @@ Hence, explicit is better than implicit. You should never have to guess where a 
 
 ### Taking a step back ..
 
-If I want to use the `TodoStatus` class defined in `todo/common/status_enums.py` in the example project structure above, how would  you import this? Well, since I organised my modules as subpackages, I would use an **absolute import**.
+If you wanted to import the `TodoStatus` class defined in a module located at `todo/common/status_enums.py`, how would you import this? Well, since I organised my modules as subpackages, I would use an **absolute import**.
 
 ```python
 from todo.common.status_enums import TodoStatus
@@ -237,9 +234,9 @@ One clear advantage of relative imports is that they are quite succinct. Dependi
 
 You can make up your own mind, however. The only important part is that the result is obvious - there should be no mystery where anything comes from.
 
-## Import style
+## Import Style
 
-[PEP 8](http://pep8.org/#imports), the official style guide for Python, has a few pointers when it comes to writing import statements. Let us consider the below example.
+[PEP 8](https://www.python.org/dev/peps/pep-0008/#imports) also has a few pointers when it comes to writing import statements. Let us consider the below example.
 
 ```python
 import json, logging
@@ -249,16 +246,11 @@ from allocation import config, views
 from allocation.domain import events
 ```
 
-1. Imports should always be written at the top of the file, after any module comments and docstrings.
-2. Imports should usually be on separate lines.
-3. Imports should be divided according to what is being imported. There are generally three groups:
-   * Python’s built-in Standard Library modules
-   * Related third party imports. These are modules that you take a dependency on but are not directly part of your application.
-   * Local application imports. The modules that belong to your application.
-4. Each group of imports should be separated by a blank space.
-5. Absolute imports are recommended, as they are usually more readable and tend to be better behaved
+It suggests that imports should usually **be on separate lines** and should **always be written at the top of the file**, after any module comments and docstrings.
 
-It’s also a good idea to order your imports alphabetically within each import group. This makes finding particular imports much easier, especially when there are many imports in a file.
+It’s also a good idea to **group your imports** according to what is being imported (this includes Python’s built-in Standard Library modules, related third party imports, and local application imports) and to **order them alphabetically** within each import group. This makes finding particular imports much easier, especially when there are many imports in a file. **Each group should be separated by a blank space**.
+
+And to improve readability and behaviour, **absolute imports are recommended**.
 
 ```python
 """This is the summary line
@@ -277,7 +269,7 @@ from allocation.domain import events
 from data_classes import asdict
 ```
 
-## if name == "__main__":
+## if name == "\_\_main\_\_":
 
 You see this a lot in Python and it confuses most folks. Whilst Python does not have much **boilerplate** - code that must be used pretty universally with little to no modification - but this is one of those rare bits.
 
@@ -323,11 +315,10 @@ You might naturally wonder why anybody would want to do this. Well, sometimes yo
 
 Beyond those examples, it's elegant that running a script in Python is just setting up a few magic variables and importing the script. "Running" the script is a side effect of importing the script's module.
 
-## In the end
+## Conclusion
 
-Let's review.
+Of course, there are a lot more advanced concepts and tricks we can employ in structuring a Python project, but we won't be discussing that here.
 
-* Every project should use a VCS, such as Git. There are plenty of options to choose from.
 * Every Python code file (`.py`) is a **module**.
 * Organise your modules into **packages**. Each package must contain a special `__init__.py` file.
 * Your project should generally consist of one top-level package, usually containing sub-packages. That top-level package usually shares the name of your project, and exists as a directory in the root of your project's repository.
@@ -335,7 +326,7 @@ Let's review.
 * Use absolute or relative imports to refer to other modules in your project.
 * Executable projects should have a `__main__.py` in the top-level package. Then, you can directly execute that package with `python -m myproject`.
 
-Of course, there are a lot more advanced concepts and tricks we can employ in structuring a Python project, but we won't be discussing that here. I highly recommend reading the docs:
+I highly recommend reading the docs:
 
 * [Python Reference: the import system](https://docs.python.org/3/reference/import.html)
 * [Python Tutorials: Modules](https://docs.python.org/3/tutorial/modules.html)

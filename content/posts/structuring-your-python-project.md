@@ -7,35 +7,42 @@ cover:
   image: "/posts/images/structuring-your-python-project.jpg"
   relative: false
 date: 2021-01-28T20:46:03.000+00:00
-description: "The ultimate setup for your next Python project"
+description: "A template guide for structuring your Python projects"
 disableShare: false
 draft: true
 hideMeta: false
-showToc: false
+showToc: true
 tags: [  "beginners", "python", "best-practices" ]
 title: "Structure your Python projects"
-tocOpen: false
+tocOpen: true
 ---
 
 Just as code style, API design, and automation are essential for a healthy productive development cycle. Project structure is a crucial part of your application's architecture.
 
 > Martin Fowler describes architecture as: “The highest-breakdown of a system into its parts.”
 
-If your repository is a massive dump of files or a nested mess of directories, any contributor will have difficulty getting to grips with your code, regardless of how beautiful your documentation might be. 
+ It has been over two decades since the release of [Pattern Orientated Software Architecture - Volume 1](https://en.wikipedia.org/wiki/Pattern-Oriented_Software_Architecture) was releaseed and interestingly enough the ideas of design are still very applicable in modern software development.
 
-Many developers and teams get this simple step wrong, often stumbling through a jumble of common mistakes until they arrive at something that at least works.
+## Why standards matter
 
-## Sample Project Repository
+If your repository is a massive dump of files or a nested mess of directories, any contributor will have difficulty getting to grips with your code, regardless of how beautiful your documentation might be.
+
+It is also well worthwhile noting that everything you do, you may probably will have to do it again. Whether it is that you realise there is a flaw in your implementation, or, say for example you depart the company for which you work. Whatever you have worked on may need to be reproduced, maintained or extended and if there is a well organised structure then knowing where to start would be much simpler.
+
+Many developers and teams get this simple step wrong, often stumbling through a jumble of mistakes until they arrive at something that at least works.
+
+## A basic project repository
 
 **tl;dr**: This project structure is one I regularly use for work. The repository is available on [GitHub](https://github.com/goodcodebadcode/pyproj-structure).
 
-{{< highlight no-highlight >}}
+There is no one way to layout a project, so the best course of action is to select and adopt the practices that meet personal preferences and project requirements.
 
-sample_repo/
+```no-highlight
+sample/
 ├── apidoc/
 ├── docs/
 ├── lib/
-├── sample/ # the name of the application/module
+├── sample/
 │   ├── app.py
 │   ├── __init__.py
 │   ├── __main__.py
@@ -55,14 +62,13 @@ sample_repo/
 ├── requirements.txt
 ├── setup.cfg
 └── setup.py
+```
 
-{{< /highlight >}}
+As you can see, there are not a lot of complex rules here. In fact, it is pretty simple. I then tend to add or remove items as required.
 
-As you can see from this sample above, there are not a lot of complex rules here. In fact, it is pretty simple. I then tend to add or remove items as required.
+## Structure of the repository
 
-## Structure of the Repository
-
-Let’s get into some specifics.
+Let us get into some specifics.
 
 * **/apidocs**: Epydoc-generated API docs.
 * **/docs**: All your documentation goes here.
@@ -90,19 +96,16 @@ This top-level directory also contains other related files. Some of these files 
 
 The files and folders included here are not necessarily exhaustive, but I recommend keeping the number of files to a minimum if you plan on using a basic layout like this.
 
-Let us now look at different options for the various types of Python projects that you will inevitably build overtime, this includes machine learning/AI projects, command-line applications, one-off scripts, installable packages, and web applications.
+## Command-Line projects
 
-## Command-Line projects?
-
-Starting with an empty project can be intimidating often leading to wasted time. Here are some proven project structures for more simple Python applications.
+Starting with an empty project can be intimidating often leading to wasted time. So, let us now look at some different options for the other types of Python projects that you will inevitably build overtime.
 
 ### One-off script
 
 The following structure will work for all of those cases where you want to create a simple script. It can be easily modified to reflect whatever tools you prefer to use in your developer workflow.
 
-{{< highlight no-highlight >}}
-
-sample_repo/
+```no-highlight
+sample/
 ├── .gitignore
 ├── LICENSE
 ├── README.rst
@@ -110,20 +113,18 @@ sample_repo/
 ├── sample.py
 ├── setup.py
 └── test_sample.py
-
-{{< /highlight >}}
+```
 
 This is pretty straightforward: everything is in the same directory. The files shown here are not necessarily exhaustive, but I recommend keeping the number of files to a minimum.
 
 ### Installable package
 
-Let us imagine that our sample.py is still the main script to execute, but we've now moved all of our helper and utility methods to a new file called helpers.py.
+Let us imagine that our `sample.py` is still the main script to execute, but we have now moved all of our helper and utility methods to a new file called `helpers.py`.
 
-We are now going to create a sample package but keep all the miscellaneous files, such as your README, .gitignore, and so on, at the top directory.
+We are now going to create a sample package but keep all the miscellaneous files, such as your `README.rst`, `.gitignore`, and so on, at the top directory.
 
-{{< highlight no-highlight >}}
-
-sample_repo/
+```no-highlight
+sample/
 ├── sample/
 │   ├── __init__.py
 │   ├── sample.py
@@ -136,8 +137,7 @@ sample_repo/
 ├── README.rst
 ├── requirements.txt
 └── setup.py
-
-{{< /highlight >}}
+```
 
 The only difference here is that our application code is now all held in the sample subdirectory. This directory is named after the package and we’ve added the required `__init__.py` file.
 
@@ -145,29 +145,27 @@ This layout is a slimmed down version of Kenneth Reitz’s [samplemod](https://g
 
 ### Application with internal-packages
 
-In larger applications where one or more internal packages are tied together or provide specific functionality to a larger library. We will extend the again to accommodate for this.
+In larger applications where one or more internal packages are tied together or provide specific functionality to a larger library. We will extend the project structure again to accommodate for this.
 
-{{< highlight no-highlight >}}
-
-sample_repo/
+```no-highlight
+sample/
 ├── bin/
 ├── docs/
 │   ├── hello.rst
 │   └── world.rst
 ├── sample/
 │   ├── __init__.py
-│   ├── runner.py
+│   ├── __main__.py
+│   ├── app.py
 │   ├── hello/
 │   │   ├── __init__.py
 │   │   ├── hello.py
 │   │   └── helpers.py
+│   ├── resources/
 │   └── world/
 │       ├── __init__.py
 │       ├── helpers.py
 │       └── world.py
-├── data/
-│   ├── input.csv
-│   └── output.xlsx
 ├── tests/
 │   ├── hello
 │   │   ├── test_hello.py
@@ -178,11 +176,49 @@ sample_repo/
 │       └── test_world.py
 ├── .gitignore
 ├── LICENSE
-└── README.rst
-
-{{< /highlight >}}
+├── README.rst
+├── requirements.txt
+└── setup.py
+```
 
 The top-level files remain largely the same as in the previous layout. These three layouts should cover most use cases for command-line applications.
+
+## Machine Learning projects
+
+Like our other samples, having a structured layout is useful for organising ML projects.
+
+```no-highlight
+sample/
+├── data/
+│   ├── external/
+│   ├── interim/
+│   ├── processed/
+│   └── raw/
+├── models/
+├── notebooks/
+├── sample/
+│   ├── data/
+│   ├── features/
+│   └── model/
+├── tests/
+├── .gitignore
+├── LICENSE
+├── README.rst
+├── requirements.txt
+└── setup.py
+```
+
+This project structure is logical, reasonably standardised, and flexible for doing and sharing data science work.
+
+* **data/raw**: Having a local copy of our data ensures that we have a static dataset to perform task on. Additionally, this overcomes any workflow breakdowns due to network latency issues. If there is no external data then this is the data to be downloaded by the script in `sample\data`. This directory should be considered as read only.
+* **data/processed**: Data after whole preprocessing, merging, cleaning, and feature engineering.
+* **data/interim**: In the event external data being available, this data would be the data that we would load for feature engineering by using a script in the `sample/data`. This dataset is generated by performing various joins and/or merges to combine the external and raw data. In short, data that is not raw but also not ready yet.
+* **data/external**: This is data extracted from third party sources (Immutable data). If no third party data is extracted then this folder is obsolete.
+* **models/**: We use a script in `sample\models` for training of our Machine Learning model. We may need to restore or reuse the model with other models to build an ensemble or to compare and we may decide upon a model that we want to deploy. In order to do this we save the trained model to a file, usually a pickle format, and that file would be saved in this directory.
+* **notebooks**: Jupyter notebooks are excellent for prototyping, exploring and communicating findings, however they are not very good for long-term growth and can be less effective for reproducibility. The notebooks directory can be further divided into sub-folders such as `notebooks\explorations` and `notebooks\poc`. Using a good naming conventions helps to distinguish what populates each notebook — a useful template is `<step>-<user>-<description>.ipynb`, where the step serves as an ordering mechanism, the creator’s first name initial, and first 2 letters of surname and description of what the notebook contains.
+* **sample/data**: In this directory we have the scripts that ingest the data from wherever it is being generated and transform that data so that it is in a state that further feature engineering can take place.
+* **sample/features**: In this directory, we have a script that manipulates the data and puts it in a format that can be consumed by our machine learning model.
+* **sample/models**: Contains scripts that are used to build and train our model.
 
 ## Web applications
 
@@ -190,10 +226,9 @@ Another major use case of Python is web applications. [Django](https://www.djang
 
 ### Django
 
-When you [create a new Django project](https://docs.djangoproject.com/en/3.1/intro/tutorial01/#creating-a-project), it will create a directory in your current working directory with the following structure.
+Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. When you [create a new Django project](https://docs.djangoproject.com/en/3.1/intro/tutorial01/#creating-a-project), it will create a directory in your current working directory with the following structure.
 
-{{< highlight no-highlight >}}
-
+```no-highlight
 mysite/
 ├── mysite/
 │   ├── __init__.py
@@ -202,26 +237,17 @@ mysite/
 │   ├── urls.py
 │   └── wsgi.py
 └── manage.py
+```
 
-{{< /highlight >}}
+You’ll need to avoid naming projects after built-in Python or Django components. In particular, this means you should avoid using names like django (which will conflict with Django itself) or test (which conflicts with a built-in Python package).
 
-After you create a new project, a new directory with the name of your project will be created in your current directory. It will by default include these files:
+### Flask
 
-* **manage.py**: A command-line utility that lets you interact with this Django project in various ways. You can read all the details about manage.py in [django-admin and manage.py](https://docs.djangoproject.com/en/3.1/ref/django-admin/).
-* **mysite/**: This directory is the actual Python package for your project.
-* **mysite/settings.py**: Settings and configuration for your Django project. Django settings will tell you all about how settings work.
-* **mysite/urls.py**: The URL declarations for your Django project.
-* **mysite/asgi.py:** An entry-point for ASGI-compatible web servers to serve your project.
-* **mysite/wsgi.py**: An entry-point for WSGI-compatible web servers to serve your project.
+Flask is a Python web “microframework.” One of the main selling points is that it is very quick to set up with minimal overhead.
 
-### Flask 
+The Flask documentation has suggested layout for their [tutorial project](https://flask.palletsprojects.com/en/1.1.x/tutorial/) - a blogging application called [Flaskr](https://github.com/pallets/flask/tree/1.1.2/examples/tutorial) - let us take a brief look at the main project directory.
 
-Flask is a Python web “microframework.” One of the main selling points is that it is very quick to set up with minimal overhead. 
-
-The Flask documentation has suggested layout for their [tutorial project](https://flask.palletsprojects.com/en/1.1.x/tutorial/) - a blogging web application called [Flaskr](https://github.com/pallets/flask/tree/1.1.2/examples/tutorial) - and we will examine that here from within the main project directory.
-
-{{< highlight no-highlight >}}
-
+```no-highlight
 flaskr-tutorial/
 ├── flaskr/
 │   ├── ___init__.py
@@ -251,8 +277,7 @@ flaskr-tutorial/
 ├── .gitignore
 ├── setup.py
 └── MANIFEST.in
-
-{{< /highlight >}}
+```
 
 Here you can see that a Flask application, like most Python applications, is built around Python packages.
 
@@ -264,10 +289,14 @@ Because Python is largely non-opinionated when it comes to application layouts, 
 
 Of course, there are a lot more advanced concepts and tricks we can employ in structuring a Python project but hopefully you have come away with the understanding that these rules are neither hard-and-fast. Over time and with practice, you’ll develop the ability to build and customise your own useful application layouts.
 
-Thanks for reading.
-
-### Resources
+### Useful Resources
 
 * [Sample Python Module Repository](https://github.com/navdeep-G/samplemod)
 * [Pytest Docs](https://docs.pytest.org/en/latest/contents.html)
 * [Python Code Quality Authority](https://github.com/PyCQA)
+
+### References
+
+1. Buschmann et al. (1996). ‘Architectural Patterns’, in Buschmann, F (ed.) Pattern-Oriented Software Architecture. John Wiley & Sons. p. 32
+2. Van Rossum, G, Warsaw, B, Coghlan, N. 2001. PEP 8 — Style Guide for Python Code. viewed 25 January 2021, <https://www.python.org/dev/peps/pep-0008/>
+3. Kurtis Pykes March 27, 2020, Structuring Machine Learning projects, viewed 1 February 2021, https://towardsdatascience.com/structuring-machine-learning-projects-be473775a1b6
