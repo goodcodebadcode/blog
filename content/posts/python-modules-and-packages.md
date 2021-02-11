@@ -27,23 +27,6 @@ Easy structuring of a project means it is also easy to do it poorly. Some signs 
 * Spaghetti code
 * Ravioli code where hundreds of similar little pieces of logic, often classes or objects, without proper structure.
 
-## PEP 8
-
-PEP stands for **Python Enhancement Proposal**, and there are several of them. A PEP is a document that describes new features proposed for Python and documents aspects of Python, like design and style, for the community.
-
-[PEP 8](https://www.python.org/dev/peps/pep-0008/), sometimes spelled PEP8 or PEP-8, is a document that provides guidelines and best practices on how to write Python code. It was written in 2001 by Guido van Rossum, Barry Warsaw, and Nick Coghlan. The primary focus of PEP 8 is to improve the readability and consistency of Python code.
-
-Now, not all PEPs are actually adopted, of course - that's why they're called "Proposals" - but some are. You can browse the master PEP index on the official Python website. This index is formally referred to as [PEP 0](https://www.python.org/dev/peps/).
-
-### Naming Packages and Modules
-
-Right now, we're mainly concerned with the section entitled [Package and Module Names](https://www.python.org/dev/peps/pep-0008/#package-and-module-names).
-
-It says that, **module names should be short and all lowercase, with underscores** if that improves readability. Similarly, **package names should be all lowercase, without underscores** if at all avoidable. Or, to put that another way:
-
-* Good: `myproject/data/load_settings.py`
-* Bad: `myproject/Data/LoadSettings.py`
-
 ## Modules
 
 Any Python (`.py`) file is a module, and a collection of modules in a single directory with an `__init__.py` file is a package. This file serves many purposes, but for simplicity sakes, it tells the Python interpreter that this directory is a package directory.
@@ -126,7 +109,7 @@ It also includes other modules written in Python that provide standardised solut
 
 There are a number of ways of importing, but there are few written and unwritten rules that you should follow.
 
-For practical purposes, let us assume we have the following two files `customer.py` and `bank_account.py` located in the same directory.
+For practical purposes, let us assume we have the following two files: `customer.py` and `bank_account.py` located in the same directory.
 
 ```no-highlight
 banking-app/
@@ -157,6 +140,8 @@ bank_account.open()
 We refer to `bank_account` as the **namespace** of `open()` and `close()`.
 
 > **Warning**: Do not confuse **namespace** with **implicit namespace package**. They're two different things.
+
+### Flat is better than nested
 
 At a certain point, however, namespaces can become a pain, especially with nested packages. `bank_app.retail_banking.customer.bank_account.open()` is just ugly. Thankfully, we do have a way around having to use the namespace every time we call the function.
 
@@ -193,7 +178,7 @@ bank_account.open()
 
 The great thing about the `import` system is that it is extremely flexible.
 
-I should mention, this type of package nesting is not favoured by Python developers. When given the choice, **flat is better than nested**.
+I should mention, this type of package nesting is not favoured by Python developers. When given the choice, flat is better than nested.
 
 ### Explicit is better than implicit
 
@@ -210,9 +195,9 @@ As `gzip` has an `open()` function, and since it was the last module imported, i
 
 Hence, explicit is better than implicit. You should never have to guess where a function or variable is coming from.
 
-### Taking a step back ..
+### Absolute vs Relative imports
 
-If you wanted to import the `TodoStatus` class defined in a module located at `todo/common/status_enums.py`, how would you import this? Well, since I organised my modules as subpackages, I would use an **absolute import**.
+Let's say you wanted to import the `TodoStatus` class defined in a module located in the package `todo/common/status_enums.py`, how would you import this? Well, since the modules are arranged as subpackages, we would use an **absolute import**.
 
 ```python
 from todo.common.status_enums import TodoStatus
@@ -234,7 +219,23 @@ One clear advantage of relative imports is that they are quite succinct. Dependi
 
 You can make up your own mind, however. The only important part is that the result is obvious - there should be no mystery where anything comes from.
 
-## Import Style
+## PEP 8 -- The Style Guide for Python Code
+
+PEP stands for **Python Enhancement Proposal**, and there are several of them. A PEP is a document that describes new features proposed for Python and documents aspects of Python, like design and style, for the community.
+
+[PEP 8](https://www.python.org/dev/peps/pep-0008/), sometimes spelled PEP8 or PEP-8, is a document that provides guidelines and best practices on how to write Python code. It was written in 2001 by Guido van Rossum, Barry Warsaw, and Nick Coghlan. The primary focus of PEP 8 is to improve the readability and consistency of Python code.
+
+> Guido Van Rossum says, "A style guide is about consistency. Consistency with this style guide is important. Consistency within a project is more important. Consistency within one module or function is the most important."
+
+Now, not all PEPs are actually adopted, of course - that's why they're called "Proposals" - but some are. You can browse the master PEP index on the official Python website. This index is formally referred to as [PEP 0](https://www.python.org/dev/peps/).
+
+### Naming Packages and Modules
+
+Right now, we're mainly concerned with the section entitled [Package and Module Names](https://www.python.org/dev/peps/pep-0008/#package-and-module-names).
+
+It says that, **module names should be short and all lowercase, with underscores** if that improves readability. Similarly, **package names should be all lowercase, without underscores** if at all avoidable.
+
+### Import Style
 
 [PEP 8](https://www.python.org/dev/peps/pep-0008/#imports) also has a few pointers when it comes to writing import statements. Let us consider the below example.
 
@@ -271,7 +272,7 @@ from data_classes import asdict
 
 ## if name == "\_\_main\_\_":
 
-You see this a lot in Python and it confuses most folks. Whilst Python does not have much **boilerplate** - code that must be used pretty universally with little to no modification - but this is one of those rare bits.
+You see this a lot in Python and it confuses most people new to the language. Whilst Python does not have much [boilerplate](https://en.wikipedia.org/wiki/Boilerplate_code), this is one of those rare bits.
 
 ### Special variables
 
@@ -322,11 +323,11 @@ Of course, there are a lot more advanced concepts and tricks we can employ in st
 * Every Python code file (`.py`) is a **module**.
 * Organise your modules into **packages**. Each package must contain a special `__init__.py` file.
 * Your project should generally consist of one top-level package, usually containing sub-packages. That top-level package usually shares the name of your project, and exists as a directory in the root of your project's repository.
-* **NEVER EVER EVER** use `*` in an import statement. Before you entertain a possible exception, the Zen of Python points out "Special cases aren't special enough to break the rules."
+* **NEVER EVER EVER** use `*` in an import statement. Before you entertain a possible exception, [the Zen of Python](https://www.python.org/dev/peps/pep-0020/) points out "Special cases aren't special enough to break the rules."
 * Use absolute or relative imports to refer to other modules in your project.
 * Executable projects should have a `__main__.py` in the top-level package. Then, you can directly execute that package with `python -m myproject`.
 
-I highly recommend reading the docs:
+### Useful resources
 
 * [Python Reference: the import system](https://docs.python.org/3/reference/import.html)
 * [Python Tutorials: Modules](https://docs.python.org/3/tutorial/modules.html)

@@ -7,7 +7,7 @@ cover:
   image: "/posts/images/structuring-your-python-project.jpg"
   relative: false
 date: 2021-01-28T20:46:03.000+00:00
-description: "A template guide for structuring your Python projects"
+description: "A guide for structuring your Python projects"
 disableShare: false
 draft: true
 hideMeta: false
@@ -19,15 +19,17 @@ tocOpen: true
 
 Just as code style, API design, and automation are essential for a healthy productive development cycle. Project structure is a crucial part of your application's architecture.
 
+ It has been over two decades since [POSA1](https://en.wikipedia.org/wiki/Pattern-Oriented_Software_Architecture) was releaseed and interestingly enough the ideas of design are still very applicable in modern software development.
+
+## Why structure matters
+
+All software systems have an architecture. Even if it comprises of just one structure with one element, there is an architecture. There are software systems that don't have a formal design and others that don't formally document the architecture, but even these systems still have an architecture.
+
 > Martin Fowler describes architecture as: “The highest-breakdown of a system into its parts.”
 
- It has been over two decades since the release of [Pattern Orientated Software Architecture - Volume 1](https://en.wikipedia.org/wiki/Pattern-Oriented_Software_Architecture) was releaseed and interestingly enough the ideas of design are still very applicable in modern software development.
+Changes to a software system are inevitable. The catalyst for change can come from the market, new requirements, changes to business processes, technology advances, and bug fixes, among other things. Structure allows you to manage and understand what it would take to make a particular change.
 
-## Why standards matter
-
-If your repository is a massive dump of files or a nested mess of directories, any contributor will have difficulty getting to grips with your code, regardless of how beautiful your documentation might be.
-
-It is also well worthwhile noting that everything you do, you may probably will have to do it again. Whether it is that you realise there is a flaw in your implementation, or, say for example you depart the company for which you work. Whatever you have worked on may need to be reproduced, maintained or extended and if there is a well organised structure then knowing where to start would be much simpler.
+If your repository is a massive dump of files or a nested mess of directories, responding to change becomes more difficult, regardless of how beautiful your documentation might be.
 
 Many developers and teams get this simple step wrong, often stumbling through a jumble of mistakes until they arrive at something that at least works.
 
