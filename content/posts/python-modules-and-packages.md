@@ -327,7 +327,7 @@ Of course, there are a lot more advanced concepts and tricks we can employ in st
 * Use absolute or relative imports to refer to other modules in your project.
 * Executable projects should have a `__main__.py` in the top-level package. Then, you can directly execute that package with `python -m myproject`.
 
-### Useful resources
+### Useful Resources
 
 * [Python Reference: the import system](https://docs.python.org/3/reference/import.html)
 * [Python Tutorials: Modules](https://docs.python.org/3/tutorial/modules.html)

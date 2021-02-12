@@ -19,7 +19,7 @@ tocOpen: true
 
 Just as code style, API design, and automation are essential for a healthy productive development cycle. Project structure is a crucial part of your application's architecture.
 
- It has been over two decades since [POSA1](https://en.wikipedia.org/wiki/Pattern-Oriented_Software_Architecture) was releaseed and interestingly enough the ideas of design are still very applicable in modern software development.
+ It has been over two decades since [POSA1](https://en.wikipedia.org/wiki/Pattern-Oriented_Software_Architecture) was released and interestingly enough the ideas of design are still very applicable in modern software development.
 
 ## Why structure matters
 
@@ -62,7 +62,6 @@ sample/
 ├── pylintrc
 ├── makefile
 ├── requirements.txt
-├── setup.cfg
 └── setup.py
 ```
 
@@ -93,7 +92,6 @@ This top-level directory also contains other related files. Some of these files 
 * **makefile**: Keeps your project up to date by rebuilding the out of date parts of your project.
 * **README.rst**: This is a [Markdown](https://en.wikipedia.org/wiki/Markdown) (or [reStructuredText](https://en.wikipedia.org/wiki/ReStructuredText)) file for documenting the purpose and usage of your application.
 * **requirements.txt**: Defines outside Python dependencies and their versions for your application.
-* **setup.cfg**: Single config file to reduce the problem of config file soup.
 * **setup.py**: Can also be used to define dependencies.
 
 The files and folders included here are not necessarily exhaustive, but I recommend keeping the number of files to a minimum if you plan on using a basic layout like this.
