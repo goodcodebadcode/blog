@@ -17,19 +17,19 @@ title: "Structure your Python projects"
 tocOpen: true
 ---
 
-Just as code style, API design, and automation are essential for a healthy productive development cycle. Project structure is a crucial part of your application's architecture.
+All software systems have an architecture. Even if it comprises of just one structure with one element, there is an architecture. There are software systems that don't have a formal design and others that don't formally document the architecture, but even these systems still have an architecture.
 
- It has been over two decades since [POSA1](https://en.wikipedia.org/wiki/Pattern-Oriented_Software_Architecture) was released and interestingly enough the ideas of design are still very applicable in modern software development.
+It has been over two decades since [POSA1](https://en.wikipedia.org/wiki/Pattern-Oriented_Software_Architecture) was released and interestingly enough the ideas of design are still very applicable in modern software development.
 
 ## Why structure matters
 
-All software systems have an architecture. Even if it comprises of just one structure with one element, there is an architecture. There are software systems that don't have a formal design and others that don't formally document the architecture, but even these systems still have an architecture.
+So, just as code style, API design and automation are essential for a healthy productive development cycle. Project structure is a crucial part of your application's architecture.
 
 > Martin Fowler describes architecture as: “The highest-breakdown of a system into its parts.”
 
-Changes to a software system are inevitable. The catalyst for change can come from the market, new requirements, changes to business processes, technology advances, and bug fixes, among other things. Structure allows you to manage and understand what it would take to make a particular change.
+Changes to a software system are inevitable. The catalyst for change can come from the market, new requirements, changes to business processes, technology advances, and bug fixes, among other things. A reproducible structure and clean code allows you to manage and understand what it would take to make a particular change.
 
-If your repository is a massive dump of files or a nested mess of directories, responding to change becomes more difficult, regardless of how beautiful your documentation might be.
+If your repository is a massive dump of files or a nested mess of directories, responding to change becomes more difficult, regardless of how beautiful your documentation might be. Generally, **if the implementation is hard to explain, it's probably a bad idea**.
 
 Many developers and teams get this simple step wrong, often stumbling through a jumble of mistakes until they arrive at something that at least works.
 
@@ -65,7 +65,7 @@ sample/
 └── setup.py
 ```
 
-As you can see, there are not a lot of complex rules here. In fact, it is pretty simple. I then tend to add or remove items as required.
+As you can see, there are not a lot of complex rules here. In fact, it is pretty simple. I then add or remove items as required.
 
 ## Structure of the repository
 
@@ -141,7 +141,7 @@ sample/
 
 The only difference here is that our application code is now all held in the sample subdirectory. This directory is named after the package and we’ve added the required `__init__.py` file.
 
-This layout is a slimmed down version of Kenneth Reitz’s [samplemod](https://github.com/navdeep-G/samplemod) application structure.
+This layout is a slimmed down version of [Kenneth Reitz’s samplemod](https://github.com/navdeep-G/samplemod) application structure.
 
 ### Application with internal-packages
 
@@ -294,9 +294,11 @@ Of course, there are a lot more advanced concepts and tricks we can employ in st
 * [Sample Python Module Repository](https://github.com/navdeep-G/samplemod)
 * [Pytest Docs](https://docs.pytest.org/en/latest/contents.html)
 * [Python Code Quality Authority](https://github.com/PyCQA)
+* [Zen of Python](https://zen-of-python.info/)
 
 ### References
 
 1. Buschmann et al. (1996). ‘Architectural Patterns’, in Buschmann, F (ed.) Pattern-Oriented Software Architecture. John Wiley & Sons. p. 32
-2. Van Rossum, G, Warsaw, B, Coghlan, N. 2001. PEP 8 — Style Guide for Python Code. viewed 25 January 2021, <https://www.python.org/dev/peps/pep-0008/>
-3. Kurtis Pykes March 27, 2020, Structuring Machine Learning projects, viewed 1 February 2021, https://towardsdatascience.com/structuring-machine-learning-projects-be473775a1b6
+2. Peters, T., 2004. PEP 20 -- The Zen of Python. [online] Python.org. Available at: <https://www.python.org/dev/peps/pep-0020/> [Accessed 12 February 2021].
+3. Van Rossum, G., Warsaw, B, Coghlan, N., 2001. PEP 8 -- Style Guide for Python Code. [online] Python.org. Available at: <https://www.python.org/dev/peps/pep-0008/> [Accessed 2 February 2021].
+4. Bednarski, M., 2017. Structure and automated workflow for a machine learning project — part 1. [online] Medium. Available at: <https://towardsdatascience.com/structure-and-automated-workflow-for-a-machine-learning-project-2fa30d661c1e> [Accessed 1 February 2021].
