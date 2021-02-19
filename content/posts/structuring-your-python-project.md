@@ -9,7 +9,7 @@ cover:
 date: 2021-01-28T20:46:03.000+00:00
 description: "A guide for structuring your Python projects"
 disableShare: false
-draft: true
+draft: false
 hideMeta: false
 showToc: true
 tags: [  "beginners", "python", "best-practices" ]
@@ -17,27 +17,37 @@ title: "Structure your Python projects"
 tocOpen: true
 ---
 
-All software systems have an architecture. Even if it comprises of just one structure with one element, there is an architecture. There are software systems that don't have a formal design and others that don't formally document the architecture, but even these systems still have an architecture.
-
-It has been over two decades since [POSA1](https://en.wikipedia.org/wiki/Pattern-Oriented_Software_Architecture) was released and interestingly enough the ideas of design are still very applicable in modern software development.
+It has been over two decades since [POSA1](https://en.wikipedia.org/wiki/Pattern-Oriented_Software_Architecture) was released and interestingly enough the ideas of design are still very applicable in modern software development. And just as code style, API design and automation are essential for a healthy productive development cycle. Project structure is a crucial part of your application's architecture.
 
 ## Why structure matters
 
-So, just as code style, API design and automation are essential for a healthy productive development cycle. Project structure is a crucial part of your application's architecture.
+All software systems have an architecture. Even those systems that don't have a formal design, or are simply composed of just one structure with one element, still have an architecture.
 
-> Martin Fowler describes architecture as: “The highest-breakdown of a system into its parts.”
+It’s very difficult to determine what good software architecture is and there is no real right answer to this question. What we can say is that having a reproducible design makes products cheaper to develop and to maintain. 
 
-Changes to a software system are inevitable. The catalyst for change can come from the market, new requirements, changes to business processes, technology advances, and bug fixes, among other things. A reproducible structure and clean code allows you to manage and understand what it would take to make a particular change.
+In general, the facets of a good architecture are all interrelated and depend on each other. 
+
+### Managing change
+
+Changes to a software system are inevitable. The catalyst for change can come from the market, new requirements, changes to business processes, technology advances, and bug fixes, among other things.
 
 If your repository is a massive dump of files or a nested mess of directories, responding to change becomes more difficult, regardless of how beautiful your documentation might be. Generally, **if the implementation is hard to explain, it's probably a bad idea**.
 
+A good project structure allows you to manage and understand what it would take to make a particular change. This reduces complexity so that most of the changes that need to be made can be limited to a single element or just a few elements, without having to make further architectural changes.
+
 Many developers and teams get this simple step wrong, often stumbling through a jumble of mistakes until they arrive at something that at least works.
+
+### A reusable model
+
+When a defined software architecture is reused, it is not just project structure that is reused. The effort that went into making early design decisions does not necessarily have to be repeated and the experience gained from the original architecture can be leveraged for other software systems.
+
+> Martin Fowler describes architecture as: “The highest-breakdown of a system into its parts.”
 
 ## A basic project repository
 
-**tl;dr**: This project structure is one I regularly use for work. The repository is available on [GitHub](https://github.com/goodcodebadcode/pyproj-structure).
-
 There is no one way to layout a project, so the best course of action is to select and adopt the practices that meet personal preferences and project requirements.
+
+A working Python repository structure might look something like this:
 
 ```no-highlight
 sample/
@@ -45,13 +55,12 @@ sample/
 ├── docs/
 ├── lib/
 ├── sample/
-│   ├── app.py
 │   ├── __init__.py
 │   ├── __main__.py
-│   └── resources/
+│   └── runner.py
 ├── scripts/
 ├── tests/
-│   └── test_app.py
+│   └── test_runner.py
 ├── .editorconfig
 ├── .gitattributes
 ├── .gitignore
@@ -62,37 +71,39 @@ sample/
 ├── pylintrc
 ├── makefile
 ├── requirements.txt
+├── setup.cfg
 └── setup.py
 ```
 
-As you can see, there are not a lot of complex rules here. In fact, it is pretty simple. I then add or remove items as required.
+As you can see, there are not a lot of complex rules here. In fact, it is pretty simple. You can then add or remove items as required.
 
 ## Structure of the repository
 
 Let us get into some specifics.
 
-* **/apidocs**: Epydoc-generated API docs.
-* **/docs**: All your documentation goes here.
-* **/lib**: For any C-Language libraries.
-* **/sample**: Your module packages are the core focus of your project. They should not be hidden away. If, however, the module consists of only a single file, place it directly in your the root directory of your project.
-* **/scripts** or **/bin**: Any command-line related items.
-* **/tests**: For your tests.
+* **API Documents** - [/apidocs]: Epydoc-generated API docs.
+* **Documents** - [/docs]: All your documentation goes here.
+* **Lib** - [/lib]: For any C-Language libraries.
+* **Module code** - [/sample]: Your module packages are the core focus of your project. They should not be hidden away. If, however, the module consists of only a single file, place it directly in your the root directory of your project.
+* **Scripts** - [/scripts]: Any command-line related items.
+* **Tests** - [/tests]: For your tests.
 
 The hardest choice is whether or not to use a `/src` tree. Python doesn't have a distinction between `/src`, `/lib`, and `/bin` like Java or C has. Since a top-level `/src` directory is seen by some as meaningless, your top-level directory can be the top-level architecture of your application. 
 
-This top-level directory also contains other related files. Some of these files will be new to you, so let’s take a quick look at what each of them does.
+This top-level directory also contains other related files. Some of these files might be new to you, so let’s take a quick look at what each of them does.
 
-* **.editorconfig**: Is a file format and collection of text editor plugins for maintaining consistent coding styles between different editors and IDEs.
-* .**gitattributes**: A simple text file that gives attributes to pathnames.
-* **.gitignore**: Specifies intentionally untracked files that Git should ignore.
-* **CHANGELOG.rst**: A log or record of all notable changes made to a project.
-* **CONTRIBUTING.rst**: Create guidelines to communicate how people should contribute to your project.
-* **LICENSE**: Describes the license for a project. It’s always a good idea to have one if you’re distributing code. The filename is in all caps by convention.
-* **pylintrc**: Allows you to tell Pylint to ignore certain checks.
-* **makefile**: Keeps your project up to date by rebuilding the out of date parts of your project.
-* **README.rst**: This is a [Markdown](https://en.wikipedia.org/wiki/Markdown) (or [reStructuredText](https://en.wikipedia.org/wiki/ReStructuredText)) file for documenting the purpose and usage of your application.
-* **requirements.txt**: Defines outside Python dependencies and their versions for your application.
-* **setup.py**: Can also be used to define dependencies.
+* **.editorconfig** - [root]: Is a file format and collection of text editor plugins for maintaining consistent coding styles between different editors and IDEs.
+* **.gitattributes** - [root]: A simple text file that gives [attributes to pathnames](https://git-scm.com/docs/gitattributes).
+* **.gitignore** - [root]: Specifies intentionally [untracked files](https://git-scm.com/docs/gitignore) that Git should ignore.
+* **CHANGELOG.rst** - [root]: A log or record of all notable changes made to a project.
+* **CONTRIBUTING.rst** - [root]: Create guidelines to communicate how people should contribute to your project.
+* **LICENSE** - [root]: Describes the license for a project. It’s always a good idea to have one if you’re distributing code. If you are uncertain of the license, a site like [choosealicense.com](https://choosealicense.com/) can help you decide. The filename is in all caps by convention.
+* **pylintrc** - [root]: Allows you to tell [Pylint](https://www.pylint.org/) to ignore certain checks.
+* **makefile** - [root]: Keeps your project up to date by rebuilding the out of date parts of your project.
+* **README.rst** - [root]: This is a [Markdown](https://en.wikipedia.org/wiki/Markdown) (or [reStructuredText](https://en.wikipedia.org/wiki/ReStructuredText)) file for documenting the purpose and usage of your application.
+* **requirements.txt** - [root]: Defines outside Python dependencies and their versions for your application.
+* **setup.cfg** - [root]: A single config file to manage tools like [Pylint](https://www.pylint.org/), [coverage.py](https://coverage.readthedocs.io/en/coverage-5.4/), [flake8](https://flake8.pycqa.org/en/latest/) and so on. Removes the resulting config clutter.
+* **setup.py** - [root]: A basic setup.py script is very common in Python projects, and can be used to define dependencies to properly build and distribute the modules your project needs. See the [official documentation](https://docs.python.org/3.6/distutils/setupscript.html) for more information on setup.py.
 
 The files and folders included here are not necessarily exhaustive, but I recommend keeping the number of files to a minimum if you plan on using a basic layout like this.
 
@@ -115,7 +126,7 @@ sample/
 └── test_sample.py
 ```
 
-This is pretty straightforward: everything is in the same directory. The files shown here are not necessarily exhaustive, but I recommend keeping the number of files to a minimum.
+This is pretty straightforward: everything is in the same directory and I recommend keeping the number of files to a minimum.
 
 ### Installable package
 
@@ -139,9 +150,9 @@ sample/
 └── setup.py
 ```
 
-The only difference here is that our application code is now all held in the sample subdirectory. This directory is named after the package and we’ve added the required `__init__.py` file.
+The only difference here is that our application code is now all held in the `sample` subdirectory. This directory is named after the package and we’ve added the required `__init__.py` file.
 
-This layout is a slimmed down version of [Kenneth Reitz’s samplemod](https://github.com/navdeep-G/samplemod) application structure.
+This layout is a slimmed down version of [Kenneth Reitz’s samplemod](https://kennethreitz.org/essays/2013/01/27/repository-structure-and-python) application structure. The repository is [available on GitHub](https://github.com/navdeep-G/samplemod).
 
 ### Application with internal-packages
 
@@ -210,15 +221,15 @@ sample/
 
 This project structure is logical, reasonably standardised, and flexible for doing and sharing data science work.
 
-* **data/raw**: Having a local copy of our data ensures that we have a static dataset to perform task on. Additionally, this overcomes any workflow breakdowns due to network latency issues. If there is no external data then this is the data to be downloaded by the script in `sample\data`. This directory should be considered as read only.
-* **data/processed**: Data after whole preprocessing, merging, cleaning, and feature engineering.
-* **data/interim**: In the event external data being available, this data would be the data that we would load for feature engineering by using a script in the `sample/data`. This dataset is generated by performing various joins and/or merges to combine the external and raw data. In short, data that is not raw but also not ready yet.
-* **data/external**: This is data extracted from third party sources (Immutable data). If no third party data is extracted then this folder is obsolete.
-* **models/**: We use a script in `sample\models` for training of our Machine Learning model. We may need to restore or reuse the model with other models to build an ensemble or to compare and we may decide upon a model that we want to deploy. In order to do this we save the trained model to a file, usually a pickle format, and that file would be saved in this directory.
-* **notebooks**: Jupyter notebooks are excellent for prototyping, exploring and communicating findings, however they are not very good for long-term growth and can be less effective for reproducibility. The notebooks directory can be further divided into sub-folders such as `notebooks\explorations` and `notebooks\poc`. Using a good naming conventions helps to distinguish what populates each notebook — a useful template is `<step>-<user>-<description>.ipynb`, where the step serves as an ordering mechanism, the creator’s first name initial, and first 2 letters of surname and description of what the notebook contains.
-* **sample/data**: In this directory we have the scripts that ingest the data from wherever it is being generated and transform that data so that it is in a state that further feature engineering can take place.
-* **sample/features**: In this directory, we have a script that manipulates the data and puts it in a format that can be consumed by our machine learning model.
-* **sample/models**: Contains scripts that are used to build and train our model.
+* **Raw data** - [/data/raw]: Having a local copy of our data ensures that we have a static dataset to perform tasks on. Additionally, this overcomes any workflow breakdowns due to network latency issues. If there is no external data then this is the data to be downloaded by the script in `sample/data`. This directory should be considered as read only.
+* **Processed data** - [/data/processed]: Data after whole preprocessing, merging, cleaning, and feature engineering.
+* **Interim data** - [/data/interim]: In the event external data being available, this data would be the data that we would load for feature engineering by using a script in the `sample/data`. This dataset is generated by performing various joins and/or merges to combine the external and raw data. In short, data that is not raw but also not ready yet.
+* **External data** - [/data/external]: This is data extracted from third party sources (Immutable data). If no third party data is extracted then this folder is obsolete.
+* **Models** - [/models]: We use a script in `sample/models` for training of our Machine Learning model. We may need to restore or reuse the model with other models to build an ensemble or to compare and we may decide upon a model that we want to deploy. In order to do this we save the trained model to a file, usually a pickle format, and that file would be saved in this directory.
+* **Notebooks** - [/notebooks]: Jupyter notebooks are excellent for prototyping, exploring and communicating findings, however they are not very good for long-term growth and can be less effective for reproducibility. The notebooks directory can be further divided into sub-folders such as `notebooks/explorations` and `notebooks/poc`.
+* **Module data** - [/sample/data]: In this directory we have the scripts that ingest the data from wherever is being generated and transform that data so that it is in a state that further feature engineering can take place.
+* **Module features** - [/sample/features]: In this directory, we have a script that manipulates the data and puts it in a format that can be consumed by our machine learning model.
+* **Module models** - [/sample/models]: Contains scripts that are used to build and train our model.
 
 ## Web applications
 
@@ -226,7 +237,7 @@ Another major use case of Python is web applications. [Django](https://www.djang
 
 ### Django
 
-Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. When you [create a new Django project](https://docs.djangoproject.com/en/3.1/intro/tutorial01/#creating-a-project), it will create a directory in your current working directory with the following structure.
+[Django](https://www.djangoproject.com/) is a high-level Python web framework that encourages rapid development and clean, pragmatic design. When you [create a new Django project](https://docs.djangoproject.com/en/3.1/intro/tutorial01/#creating-a-project), it will create a directory in your current working directory with the following structure.
 
 ```no-highlight
 mysite/
@@ -239,11 +250,15 @@ mysite/
 └── manage.py
 ```
 
+Django apps can be imported into projects and used across projects, and are structured like specialised Python packages.
+
 You’ll need to avoid naming projects after built-in Python or Django components. In particular, this means you should avoid using names like django (which will conflict with Django itself) or test (which conflicts with a built-in Python package).
+
+See the [official documentation](https://docs.djangoproject.com/) for more information.
 
 ### Flask
 
-Flask is a Python web “microframework.” One of the main selling points is that it is very quick to set up with minimal overhead.
+[Flask](https://flask.palletsprojects.com/en/1.1.x/) is a Python do it yourself web “microframework.” One of the main selling points is that it is very quick to set up with minimal overhead.
 
 The Flask documentation has suggested layout for their [tutorial project](https://flask.palletsprojects.com/en/1.1.x/tutorial/) - a blogging application called [Flaskr](https://github.com/pallets/flask/tree/1.1.2/examples/tutorial) - let us take a brief look at the main project directory.
 
@@ -281,11 +296,13 @@ flaskr-tutorial/
 
 Here you can see that a Flask application, like most Python applications, is built around Python packages.
 
+> Flask is considered more Pythonic than Django because in common situations the equivalent Flask web application is more explicit.
+
 ## Conclusions
 
-Now you’ve seen example project structures for a number of different application types. Hopefully, you now have the tools to successfully prevent coder’s block by building out your application structure so that you’re not staring at a blank canvas for each and every project.
+Now that you’ve seen some example project structures, hopefully, you have the tools to successfully start a new project without running into coder's block.
 
-Because Python is largely non-opinionated when it comes to application layouts, you can customise these examples to better fit your use case.
+Since Python is largely non-opinionated when it comes to application structure, you can customise these examples to better fit your use case.
 
 Of course, there are a lot more advanced concepts and tricks we can employ in structuring a Python project but hopefully you have come away with the understanding that these rules are neither hard-and-fast. Over time and with practice, you’ll develop the ability to build and customise your own useful application layouts.
 

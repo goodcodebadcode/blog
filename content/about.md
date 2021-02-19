@@ -10,12 +10,12 @@ cover:
   caption: Photo by Joshua Aragon on Unsplash
   relative: false
 comments: true
-draft: true
+draft: false
 
 ---
 This blog is a repository of knowledge gained, lessons learned and experiences from the front line of software development over the last fifteen years.
 
-Written by David, technical architect and principal software engineer.
+Written by Alan, technical architect and principal software engineer.
 
 I learnt my trade as a software developer in the mid 2000’s with Classic ASP, although I spent a large part of my time in the early days writing code in Visual Basic.
 
@@ -35,6 +35,6 @@ Clean Code is not only considered one of the greatest programming books of all-t
 
 I believe that blogs can be a two-way discussion, so I welcome emails and comments – as long as they're on topic and polite.
 
-* [david@goodcodebadcode.com](david@goodcodebadcode.com)
+* [alan@goodcodebadcode.com](alan@goodcodebadcode.com)
 * [@goodcodebadcode](https://twitter.com/goodcodebadcode/)
 * [GitHub for related code samples](https://github.com/goodcodebadcode/)
